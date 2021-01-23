@@ -1,0 +1,83 @@
+h1{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 40px;
+    font-weight: bold;
+}
+h2{
+    font-size: 25px;
+}
+div{
+    text-align: center;
+}
+.contact-form{
+    display: block;
+    text-align: left;
+    margin-top: 3%;
+}
+.label{
+    margin: 35%;
+    font-size: 110%;
+    font-weight: bold;
+}
+.contact-form  input[type='text']{
+    display: block;
+    align-content: center;
+    margin: 1% 0% 1% 35%;
+    height: 43px;
+    width: 30%;
+    font-size: 140%;
+    border: 2px solid grey; 
+    padding-left: 0.595%;
+}
+.contact-form  input[type='email']{
+    display: block;
+    align-content: center;
+    margin: 1% 0% 1% 35%;
+    height: 43px;
+    width: 30%;
+    font-size: 140%;
+    border: 2px solid grey; 
+    padding-left: 0.595%;
+}
+.contact-form  input[type='password']{
+    display: block;
+    align-content: center;
+    margin: 1% 0% 1% 35%;
+    height: 43px;
+    width: 30%;
+    font-size: 140%;
+    border: 2px solid grey; 
+    padding-left: 0.595%;
+}
+.contact-form textarea{
+    display: block;
+    margin: 1% 0% 0% 35%;
+    width: 30%;
+    height: 120px;
+    border: 2px solid grey;
+    font-size: 150%;
+    padding-left: 0.595%;
+}
+.contact-form  input[type='submit']{
+    display: block;
+    margin: auto;
+    width: 9%;
+    height: 40px;
+    background: black;
+    color: white;
+    border: none;
+}
+.erreur{
+    font-size: 20px;
+    color: red;
+    text-align: center;
+}
+a{
+    color: black;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.co{
+    font-size: 20px;
+}
