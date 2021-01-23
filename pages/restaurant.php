@@ -1,6 +1,5 @@
 <div class="container">
     <?php
-    var_dump($restaurant);
-    var_dump($plats);
+    echo parse('restaurant-header.html', $restaurant);
     ?>
 </div>
