@@ -22,14 +22,14 @@
                     </div>
                 </form>
                 <?php
-                if(!is_null($login) && $login['success'] == false)
+                if(isset($login) && $login['success'] == false)
                 {
                     echo parse('alerte-erreur.html', $login);
                 }
                 ?>
                 <div class="in">
                 Vous n'avez pas de compte? Inscrivez vous ici
-                <a href="../php/inscription_client.php">S'inscrire</a>
+                <a href="index.php?page=inscription">S'inscrire</a>
                 </div>
             </div>
 

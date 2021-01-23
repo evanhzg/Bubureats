@@ -33,7 +33,7 @@
         </div>
 
         <?php
-        if($update_profile && isset($update_profile['erreur'])){
+        if(isset($update_profile) && $update_profile['success'] == false){
             echo parse('alerte-erreur.html', $update_profile);
         }
         ?>

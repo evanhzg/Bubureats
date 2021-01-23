@@ -41,15 +41,15 @@
     </section>
     <br>
     <?php
-    if(isset($erreur))
+    if(isset($create_profile) && $create_profile['success'] == false)
     {
-        echo parse('alerte-erreur.html', $update_profile);
+        echo parse('alerte-erreur.html', $create_profile);
     }
     ?>
     <br><br>
     <div class = co>
         Vous avez déja un compte? Connectez vous ici
         <br><br>
-        <a href="../php/connexion_client.php">Se connecter</a>
+        <a href="index.php?page=connexion">Se connecter</a>
     </div>
 </div>

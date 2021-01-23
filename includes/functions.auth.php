@@ -1,6 +1,5 @@
 <?php
 function auth_login($data){
-    var_dump($data);
     global $bdd;
     $response = ['success'  => false];
     $mailconnect = htmlspecialchars($data['mailconnect']);
@@ -105,7 +104,7 @@ function auth_update_profile(){
     {
         header("location: index.php?page=profil-client");
     }
-
+    $response['erreur'] = "Merci de vérifier tous les champs.";
     return $response;
 }
 

@@ -31,8 +31,6 @@
     ?>
     <div>
         <a class="edit" href="../php/editprofil_client.php">Editer mon profil</a>
-        <br><br>
-        <a class="deco" href="../php/deconnexion_client.php">Se déconnecter</a> 
     </div>
     <?php
     }
