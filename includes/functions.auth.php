@@ -15,7 +15,7 @@ function auth_login($data){
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['prenom'] = $userinfo['prenom'];
             $_SESSION['mail'] = $userinfo['mail'];
-            header("Location: index.php?page=profil-" . $data['role']);
+            header("Location: index.php?page=profil");
             $response['success'] = true;
         }
         else

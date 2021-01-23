@@ -1,4 +1,4 @@
-
+RESTAURANT
         <div>
             <h1>Profil de <?php echo $userinfo['prenom'];?> </h1>
         </div>
@@ -9,7 +9,7 @@
                 <input type="text" placeholder="<?php echo $userinfo['nom']?>" disabled>
                 </div>
                 <div>
-                <label class="label">prenom</label>
+                <label class="label">Prenom</label>
                 <input type="text" placeholder="<?php echo $userinfo['prenom']?>" disabled>
                 </div>
                 <div>
@@ -30,7 +30,7 @@
     {
     ?>
     <div>
-        <a class="edit" href="index.php?page=edition-profil-client">Editer mon profil</a>
+        <a class="edit" href="index.php?page=edition-profil">Editer mon profil</a>
     </div>
     <?php
     }

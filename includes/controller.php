@@ -11,12 +11,12 @@ switch($requested_page){
         $page = 'choix-compte';
         $pagetitle = "Qui êtes-vous ?";
         break;
-    case 'profil-client':
-        $page = 'profil-client';
+    case 'profil':
+        $page = 'profil';
         $pagetitle = "Votre compte";
         break;
-    case 'edition-profil-client':
-        $page = 'edition-profil-client';
+    case 'profil-edit':
+        $page = 'profil-edit';
         $pagetitle = 'Edition du Profil';
         break;
     case 'profil-restaurant':
