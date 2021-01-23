@@ -3,6 +3,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+    color: white;
 }
 
 #header {}
