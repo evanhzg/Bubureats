@@ -158,24 +158,3 @@ header.masthead .bg-circle-4 {
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
 }
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: stretch;
-  align-items: flex-start;
-  }
-
-.flex-item:nth-child(1) {
-  order: 1;
-  flex: 2 1 auto;
-  align-self: auto;
-  }
-
-.flex-item:nth-child(2) {
-  order: 1;
-  flex: 2 1 auto;
-  align-self: auto;
-  }
