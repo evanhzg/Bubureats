@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=bubureats', 'root', '');
 if(isset($_SESSION['id']))
 {
     $requser = $bdd->prepare ("SELECT * FROM membres WHERE id = ?");
@@ -13,11 +13,11 @@ if(isset($_SESSION['id']))
         $insertnom->execute(array($newnom, $_SESSION['id']));
         header("location: profil_client.php?id=".$_SESSION['id']);
     }
-    if(isset($_POST['newprénom']) AND !empty($_POST['newprénom']) AND $_POST['newprénom'] != $user['prénom'])
+    if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $user['prenom'])
     {
-        $newprénom = htmlspecialchars($_POST['newprénom']);
-        $insertprénom = $bdd->prepare("UPDATE membres SET prénom = ? WHERE id = ?");
-        $insertprénom->execute(array($newprénom, $_SESSION['id']));
+        $newprenom = htmlspecialchars($_POST['newprenom']);
+        $insertprenom = $bdd->prepare("UPDATE membres SET prenom = ? WHERE id = ?");
+        $insertprenom->execute(array($newprenom, $_SESSION['id']));
         header("location: profil_client.php?id=".$_SESSION['id']);
     }
     if(isset($_POST['newmail']) AND !empty($_POST['newmail']) AND $_POST['newmail'] != $user['mail'])
@@ -59,7 +59,7 @@ if(isset($_SESSION['id']))
         header("location: profil_client.php?id=".$_SESSION['id']);
 
     }
-    if(isset($_POST['newprénom']) AND $_POST['newprénom'] == $user['prénom'])
+    if(isset($_POST['newprenom']) AND $_POST['newprenom'] == $user['prenom'])
     {
         header("location: profil_client.php?id=".$_SESSION['id']);
     }
@@ -84,8 +84,8 @@ if(isset($_SESSION['id']))
                 <input type="text" placeholder="nom" name="newnom" value="<?php echo $user['nom']; ?>">
                 </div>
                 <div>
-                <label class="label">Prénom</label>
-                <input type="text" placeholder="prénom" name="newprénom" value="<?php echo $user['prénom']; ?>">
+                <label class="label">prenom</label>
+                <input type="text" placeholder="prenom" name="newprenom" value="<?php echo $user['prenom']; ?>">
                 </div>
                 <div>
                 <label class="label">Mail</label>

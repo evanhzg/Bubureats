@@ -1,11 +1,11 @@
 <?php
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=bubureats', 'root', '');
 if(isset($_POST['forminscription']))
 {
-    if(!empty($_POST['nom']) AND !empty($_POST['Prénom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
+    if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
     {
         $nom = htmlspecialchars($_POST['nom']);
-        $prénom = htmlspecialchars($_POST['Prénom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
         $mail = htmlspecialchars($_POST['mail']);
         $mail2 = htmlspecialchars($_POST['mail2']);
         $mdp = sha1($_POST['mdp']);
@@ -20,8 +20,8 @@ if(isset($_POST['forminscription']))
                 $nomexist = $reqnom->rowCount();
                 if($nomexist == 0)
                 {
-                    $reqprenom = $bdd->prepare("SELECT * FROM membres WHERE prénom = ?");
-                    $reqprenom->execute(array($prénom));
+                    $reqprenom = $bdd->prepare("SELECT * FROM membres WHERE prenom = ?");
+                    $reqprenom->execute(array($prenom));
                     $prenomexist = $reqprenom->rowCount();
                     if($prenomexist == 0)
                     {
@@ -33,8 +33,8 @@ if(isset($_POST['forminscription']))
 
                             if($mdp == $mdp2)
                             {
-                                $insertmbr = $bdd->prepare("INSERT INTO membres(nom, prénom, mail, motdepasse) VALUES(?, ?, ?, ?)");
-                                $insertmbr->execute(array($nom, $prénom, $mail, $mdp));
+                                $insertmbr = $bdd->prepare("INSERT INTO membres(nom, prenom, mail, motdepasse) VALUES(?, ?, ?, ?)");
+                                $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
                                 header("Location: connexion_client.php");
                             }
                             else
@@ -49,7 +49,7 @@ if(isset($_POST['forminscription']))
                     }
                     else
                     {
-                        $erreur = "Prénom déja utilisé!";
+                        $erreur = "prenom déja utilisé!";
                     }
                 }
                 else
@@ -96,8 +96,8 @@ if(isset($_POST['forminscription']))
                 <input type="text" placeholder="Votre nom" id="nom" name="nom">
             </div>
             <div>
-                <label for="Prénom" class="label">PRENOM</label>
-                <input type="text" placeholder="Votre prénom" id="Prénom" name="Prénom">
+                <label for="prenom" class="label">PRENOM</label>
+                <input type="text" placeholder="Votre prenom" id="prenom" name="prenom">
             </div>
             <div>
                 <label for="mail" class="label">MAIL</label>

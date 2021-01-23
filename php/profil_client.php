@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
+$bdd = new PDO('mysql:host=127.0.0.1;dbname=bubureats', 'root', '');
 if(isset($_GET['id']) AND $_GET['id'] > 0)
 {
     $getid = intval($_GET['id']);
@@ -19,7 +19,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 </head>
 <body>
         <div>
-            <h1>Profil de <?php echo $userinfo['prénom'];?> </h1>
+            <h1>Profil de <?php echo $userinfo['prenom'];?> </h1>
         </div>
         <br><br><br><br>
         <section>
@@ -29,8 +29,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
                 <input type="text" placeholder="<?php echo $userinfo['nom']?>" disabled>
                 </div>
                 <div>
-                <label class="label">Prénom</label>
-                <input type="text" placeholder="<?php echo $userinfo['prénom']?>" disabled>
+                <label class="label">prenom</label>
+                <input type="text" placeholder="<?php echo $userinfo['prenom']?>" disabled>
                 </div>
                 <div>
                 <label class="label">Mail</label>
