@@ -30,7 +30,7 @@ RESTAURANT
     {
     ?>
     <div>
-        <a class="edit" href="index.php?page=edition-profil">Editer mon profil</a>
+        <a class="edit" href="index.php?page=profil-edit">Editer mon profil</a>
     </div>
     <?php
     }

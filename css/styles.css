@@ -7,6 +7,10 @@ body {
     color: white;
 }
 
+.card{
+  color: rgb(94, 94, 94);
+}
+
 #header {}
 #main {flex: 1;}
 #footer {}
