@@ -35,7 +35,7 @@ if(isset($_POST['forminscription']))
                             {
                                 $insertmbr = $bdd->prepare("INSERT INTO membres(nom, prenom, mail, motdepasse) VALUES(?, ?, ?, ?)");
                                 $insertmbr->execute(array($nom, $prenom, $mail, $mdp));
-                                header("Location: connexion_client.php");
+                                header("Location: index.php?page=connexion");
                             }
                             else
                             {
@@ -130,9 +130,9 @@ if(isset($_POST['forminscription']))
     ?>
     <br><br>
     <div class = co>
-    Vous avez déja un compte? Connectez vous ici
-    <br><br>
-    <a href="../php/connexion_client.php">Se connecter</a>
+        Vous avez déja un compte? Connectez vous ici
+        <br><br>
+        <a href="../php/connexion_client.php">Se connecter</a>
     </div>
 </body>
 </html>

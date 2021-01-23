@@ -1,32 +1,8 @@
 <?php
-session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=bubureats', 'root', '');
 if(isset($_POST['formconnect']))
 {
-    $mailconnect = htmlspecialchars($_POST['mailconnect']);
-    $mdpconnect = sha1($_POST['mdpconnect']);
-    if(!empty($mailconnect) AND !empty($mdpconnect))
-    {
-        $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse= ?");
-        $requser->execute (array($mailconnect, $mdpconnect));
-        $userexist = $requser->rowCount();
-        if($userexist == 1)
-        {
-            $userinfo = $requser->fetch();
-            $_SESSION['id'] = $userinfo['id'];
-            $_SESSION['prénom'] = $userinfo['prénom'];
-            $_SESSION['mail'] = $userinfo['mail'];
-            header("Location: profil_client.php?id=".$_SESSION['id']);
-        }
-        else
-        {
-            $erreur = "Mail ou mot de passe invalide!";
-        }
-    }
-    else
-    {
-        $erreur = "Tous les champs doivent être remplis!";
-    }
+    $login = auth_login($_POST);
 }
 ?>
 <!DOCTYPE html>
@@ -60,9 +36,9 @@ if(isset($_POST['formconnect']))
     </section>
     <br><br>
     <?php
-    if(isset($erreur))
+    if($login['success'] == false)
     {
-        echo '<div class="erreur">' .$erreur. '</div>';
+        echo '<div class="alert alert-danger">' .$login['erreur']. '</div>';
     }
     ?>
     <br><br>

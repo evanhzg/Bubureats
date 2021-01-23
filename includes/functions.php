@@ -14,7 +14,8 @@ function db_get($table, $id=null, $column = 'id'){
 }
 
 function db_insert($table, $data) {
-    
+    global $bdd;
+    $q = "";
 }
 
 function db_update($table, $id, $data) {

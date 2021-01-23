@@ -56,7 +56,7 @@ div{
     font-size: 150%;
     padding-left: 0.595%;
 }
-.contact-form  input[type='submit']{
+.contact-form input[type='submit']{
     display: block;
     margin: auto;
     width: 9%;

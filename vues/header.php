@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo $pagetitle ?></title>
+  <title>BUBUR Eats  - <?php echo $pagetitle ?></title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -34,7 +34,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="input-group d-flex justify-content-end mr-4">
+        <div class="input-group d-flex justify-content-end align-items-end mr-4">
           <div class="form-outline">
             <input id="search-input" type="search" id="form1" class="form-control" placeholder="MIAM-MIAM" />
           </div>
@@ -44,12 +44,14 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Inscription</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Connexion</a>
-            </li>
+            <?php
+            if(isset($_SESSION['id'])){
+              echo parse('menu-connected.html', $userinfo);
+            }
+            else{
+              echo parse('menu-connexion.html', []);
+            }
+            ?>
           </ul>
         </div>
       </div>
