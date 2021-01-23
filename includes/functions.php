@@ -29,7 +29,7 @@ function db_delete($table, $id) {
 function parse($template_name, $data) {
     $template = file_get_contents('vues/' . $template_name);
     $template = preg_replace_callback(
-        '/(\{\{([a-z]+)\}\})/',
+        '/(\{\{([a-z_]+)\}\})/',
         function ($matches) use ($data) {
             //var_dump($matches);
             return $data[$matches[2]];

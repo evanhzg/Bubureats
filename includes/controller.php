@@ -1,5 +1,6 @@
 <?php
 include 'includes/controller.auth.php';
+include 'includes/controller.panier.php';
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;
 switch($requested_page){
