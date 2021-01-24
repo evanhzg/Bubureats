@@ -12,25 +12,29 @@
             <div class="modal-body">
             <form method="post">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="mail">
+                    <label for="mail">Email</label>
+                    <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" name="mail">
                     <small id="emailHelp" class="form-text text-muted">Nous ne partagerons pas vos informations personnelles.</small>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Nom</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="nom">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" name="nom">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Prénom</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="prenom">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Adresse</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="adresse">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Mot de passe</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="motdepasse">
+                    <label for="motdepasse">Mot de passe</label>
+                    <input type="password" class="form-control" id="motdepasse" name="motdepasse">
+                </div>
+                <div class="form-group">
+                    <label for="solde">Solde</label>
+                    <input type="number" class="form-control" id="solde" name="solde">
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="customRadioInline1" name="role" value="client" class="custom-control-input">
@@ -39,6 +43,10 @@
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="customRadioInline2" name="role" value="restaurateur" class="custom-control-input">
                     <label class="custom-control-label" for="customRadioInline2" >Restaurateur</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline3" name="role" value="admin" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline3" >Administrateur</label>
                 </div>
                 <input type="hidden" name="_form" value="formAjoutMembre">
                 <button type="submit" class="btn btn-primary">Envoyer</button>

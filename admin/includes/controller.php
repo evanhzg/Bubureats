@@ -18,6 +18,14 @@ switch($requested_page){
         $membres = db_get('membres');
         $columns = array_keys($membres[0]);
         break;
+    case 'membre-edit':
+        $page = 'membre-edit';
+        $pagetitle = "membres";
+        $membre = db_get('membres', $_GET['id'])[0];
+        $membre['is_client'] = $membre['role'] == 'client' ? ' checked' : null;
+        $membre['is_restaurateur'] = $membre['role'] == 'restaurateur' ? ' checked' : null;
+        $membre['is_admin'] = $membre['role'] == 'admin' ? ' checked' : null;
+        break;
     default:
         $page = 'dashboard';
         break;

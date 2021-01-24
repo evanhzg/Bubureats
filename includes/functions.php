@@ -60,11 +60,20 @@ function db_insert($table, $data) {
 
 function db_update($table, $id, $data) {
     global $bdd;
-    $response = ['sucess' => false];
+    $response = ['success' => false];
 
-    $colonnes = array_keys($data);
-    for ($i=0; $i < count($colonnes); $i++) { 
-        $colonnes_valeurs[] = $colonnes[$i]. "= ?";
+
+    $keys = array_keys($data);
+    $colonnes_valeurs = [];
+    $placeholder = [];
+
+    for ($i=0; $i < count($keys); $i++) { 
+        if(!preg_match('/^_/', $keys[$i])){
+            $colonnes_valeurs[] = $keys[$i]. "= ?";
+        }
+        else{
+            unset($data[$keys[$i]]);
+        }
     }
     $colonnes_valeurs = implode(',', $colonnes_valeurs);
     $q = "UPDATE $table SET $colonnes_valeurs WHERE id = $id";
@@ -77,7 +86,7 @@ function db_update($table, $id, $data) {
     }
 
     else{
-    $response = ['sucess' => true];
+    $response = ['success' => true, 'message' => 'Mise à jour réussie.'];
     }
     return $response;
 }
@@ -115,5 +124,13 @@ function parse($template_name, $data) {
         },
         $template
     );
-    echo $template;
+    return $template;
+}
+
+function parse_alert($message, $type = 'danger') {
+    $data = [
+        'type_alert' => $type,
+        'message' => $message
+    ];
+    return parse('alert.html', $data);
 }
