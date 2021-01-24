@@ -28,10 +28,18 @@ function db_insert($table, $data) {
     global $bdd;
     $response = ['sucess' => false];
 
-    $colonnes = array_keys($data);
+    $keys = array_keys($data);
+    $colonnes = [];
     $placeholder = [];
-    for ($i=0; $i < count($colonnes); $i++) { 
-        $placeholder[] = "?";
+
+    for ($i=0; $i < count($keys); $i++) { 
+        if(!preg_match('/^_/', $keys[$i])){
+            $colonnes[] = $keys[$i];
+            $placeholder[] = "?";
+        }
+        else{
+            unset($data[$keys[$i]]);
+        }
     }
     $colonnes = implode(',', $colonnes);
     $placeholder = implode(',', $placeholder);

@@ -1,5 +1,4 @@
 <?php
-
 include "includes/controller.php";
 include "vues/header.php";
 include "vues/sidebar.php";

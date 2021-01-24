@@ -7,6 +7,8 @@ define('ADMIN_ROOT', ROOT . '/admin');
 include ROOT . '/includes/connexion.db.php';
 include ROOT . '/includes/functions.php';
 include ADMIN_ROOT . '/includes/controller.auth.php';
+include ADMIN_ROOT . '/includes/crud.php';
+
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;
 switch($requested_page){

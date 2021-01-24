@@ -1,6 +1,4 @@
 <?php
-$insert = db_insert('membres', ['prenom' => 'jean','nom' => 'paul', 'mail' => 'jp@wanadoo.fr']);
-//$update = db_delete('membres', 57);
 if(isset($update['erreur'])){
     echo parse('alerte-erreur.html', $update);
 }
@@ -25,3 +23,5 @@ if(isset($update['erreur'])){
         ?>
     </tbody>
 </table>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Ajouter un membre</button>
