@@ -1,3 +1,11 @@
+<?php
+$insert = db_insert('membres', ['prenom' => 'jean','nom' => 'paul', 'mail' => 'jp@wanadoo.fr']);
+//$update = db_delete('membres', 57);
+if(isset($update['erreur'])){
+    echo parse('alerte-erreur.html', $update);
+}
+
+?>
 <table id="table_id" class="display dataTable">
     <thead>
         <tr>
