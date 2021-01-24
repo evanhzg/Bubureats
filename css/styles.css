@@ -1,5 +1,5 @@
 
-body {
+body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -9,6 +9,11 @@ body {
 
 .card{
   color: rgb(94, 94, 94);
+}
+
+.white-bg{
+  width: 100%;
+  background-color: white;
 }
 
 #header {}

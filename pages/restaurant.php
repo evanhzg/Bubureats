@@ -4,15 +4,17 @@
             <?php
             echo parse('restaurant-header.html', $restaurant);
             ?>
-            <h2>Nos plats</h2>
-            <div class="row liste-plats">
-                <?php
-                foreach($plats as $plat){
-                    $plat['id_restaurant'] = $restaurant['id'];
-                    echo parse('plats-small.html', $plat);
-                }
-                ?>
-            </div>
+            <section class="white-bg">
+                <h2>Nos plats</h2>
+                <div class="row liste-plats">
+                    <?php
+                    foreach($plats as $plat){
+                        $plat['id_restaurant'] = $restaurant['id'];
+                        echo parse('plats-small.html', $plat);
+                    }
+                    ?>
+                </div>
+            </section>
         </div>
         <div class="col-md-4">
             <div class="card">
