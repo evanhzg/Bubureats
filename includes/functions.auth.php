@@ -30,6 +30,48 @@ function auth_login($data){
     return $response;
 }
 
+function auth_login_admin($data){
+    global $bdd;
+    $response = ['success' => false];
+    
+    if($data['email'] != '' && $data['password'] != ''){
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $response['erreur'] = "Adresse email invalide!";
+            return $response;
+        }
+    }
+    else{
+        $response['erreur'] = "Tous les champs doivent être complétés !";
+        return $response;
+    }
+    
+    //login
+    $mailconnect = htmlspecialchars($data['email']);
+    $mdpconnect = sha1($data['password']);
+
+    $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse= ? AND role = 'admin'");
+    $requser->execute (array($mailconnect, $mdpconnect));
+    $userexist = $requser->rowCount();
+    $userinfo = $requser->fetch();
+    if($userexist == 1) {
+        $_SESSION['admin'] = $userinfo;
+        $response['success'] = true;
+        header("Location: " . ADMIN_URL);
+        return $response;
+    }
+    else {
+        $response['erreur'] = "Vous n'avez pas accès à cet espace.";
+    }
+
+    //verif si role=admin
+    //si oui, dashboard
+    //si non, deconnexion et alerte 'non admin'
+
+    unset($_SESSION['admin']);
+    $response['erreur'] = "Erreur inconnue";
+    return $response;
+}
+
 function auth_getUser($id){
     $user = db_get('membres', $id)[0];
     return $user;

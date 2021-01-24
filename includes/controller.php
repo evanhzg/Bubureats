@@ -1,4 +1,6 @@
 <?php
+define('WEBSITE_URL', 'http://localhost/bubureats');
+define('ROOT', realpath(dirname(__DIR__)));
 include 'includes/controller.auth.php';
 include 'includes/controller.panier.php';
 // Routage
