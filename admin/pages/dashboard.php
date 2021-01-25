@@ -30,7 +30,7 @@
     echo parse('admin/stats-total.html', [
         'total' => $stats['total_commissions'],
         'titre' => 'Revenus totaux des commissions',
-        'icon_class' => 'fas euro-sign',
+        'icon_class' => 'fas fa-wallet',
         'color' => 'danger'
     ]);
     ?>

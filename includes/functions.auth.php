@@ -167,7 +167,8 @@ function auth_create_profile(){
         $mdp = sha1($_POST['mdp']);
         $mdp2 = sha1($_POST['mdp2']);
         $role = $_POST['role'];
-
+        $adresse = htmlspecialchars($_POST['adresse']) . ", " . htmlspecialchars($_POST['codepostal']) . " " . htmlspecialchars($_POST['ville']);
+        var_dump($nom, $prenom, $mail, $mdp, $role, $adresse);
         if($mail == $mail2)
         {
             if(filter_var($mail, FILTER_VALIDATE_EMAIL))
@@ -190,8 +191,8 @@ function auth_create_profile(){
 
                             if($mdp == $mdp2)
                             {
-                                $insertmbr = $bdd->prepare("INSERT INTO membres(nom, prenom, mail, motdepasse, `role`) VALUES(?, ?, ?, ?, ?)");
-                                $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $role));
+                                $insertmbr = $bdd->prepare("INSERT INTO membres(nom, prenom, mail, motdepasse, adresse, `role`) VALUES(?, ?, ?, ?, ?, ?)");
+                                $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $adresse, $role));
                                 $log = auth_login(['mailconnect' => $mail, 'mdpconnect' => $_POST['mdp'], 'role' => $role]);
                             }
                             else
