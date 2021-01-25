@@ -31,4 +31,4 @@ if (isset($update)) {
     </tbody>
 </table>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user-plus"></i> Ajouter un membre</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nouveaumembre"><i class="fas fa-user-plus"></i> Ajouter un membre</button>
