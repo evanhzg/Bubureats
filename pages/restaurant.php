@@ -28,6 +28,7 @@
                             echo parse('plat-panier.html', $plat);
                         }
                         ?>
+                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary">Finaliser la commande</a>
                     </div>
                 </div>
             </div>

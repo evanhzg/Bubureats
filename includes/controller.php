@@ -1,6 +1,7 @@
 <?php
 define('WEBSITE_URL', 'http://localhost/bubureats');
 define('ROOT', realpath(dirname(__DIR__)));
+define('MONTANT_COMMISSION', 2.5);
 include 'includes/controller.auth.php';
 include 'includes/controller.panier.php';
 
@@ -45,6 +46,9 @@ switch($requested_page){
     case 'plats':
         $page = 'plats';
         $plats = db_get('plats');
+        break;
+    case 'finalisation-commande':
+        $page = 'finalisation-commande';
         break;
     default:
         $page = 'homepage';

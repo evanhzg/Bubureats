@@ -16,9 +16,7 @@ body{
   background-color: white;
 }
 
-#header {}
 #main {flex: 1;}
-#footer {}
 
 .flex-container {
     display: flex;

@@ -30,5 +30,11 @@ switch($requested_page){
         break;
     default:
         $page = 'dashboard';
+        $restaurants = db_get('restaurants');
+        $membres = db_get('membres');
+        $stats = [
+            'nb_restaurants' => count($restaurants),
+            'nb_membres' => count($membres)
+        ];
         break;
 }

@@ -16,7 +16,7 @@ class Panier {
         }
     }
 
-    public function ajoutPlat($id_plat, $quantite = 1){
+    public function ajoutPlat($id_plat, $quantite = 1, $id_restaurant = null){
         if  (isset($this->plats[$id_plat])) {
             $this->plats[$id_plat]['quantite'] += $quantite;
         }
@@ -24,11 +24,12 @@ class Panier {
             $this->plats[$id_plat] = db_get('plats', $id_plat)[0];
             $this->plats[$id_plat]['quantite'] =  $quantite;
         }
+        $this->id_restaurant = $id_restaurant;
         $this->enregistrerPanier();
     }
 
     public function totalCommande(){
-
+        return 10;
     }
 
     public function viderPanier(){
@@ -36,7 +37,17 @@ class Panier {
     }
 
     public function finaliserPanier(){
-
+        $commande  = [
+            'plats' => json_encode($this->plats),
+            'nombre_plats' => count($this->plats),
+            'total_ht' => $this->totalCommande(),
+            'montant_commission' => MONTANT_COMMISSION,
+            'id_client' => $_SESSION['id'],
+            'id_restaurant' => $this->id_restaurant
+        ];
+        $insert = db_insert('commandes', $commande);
+        var_dump($insert);
+        var_dump($this->en);
     }
 
     private function enregistrerPanier(){
