@@ -1,5 +1,5 @@
 <?php
-function db_get($table, $id=null, $column = 'id'){
+function db_get($table, $id=null, $column = 'id', $callback=null){
     global $bdd;
     $results = [];
     $q = "SELECT * FROM $table";
@@ -7,6 +7,9 @@ function db_get($table, $id=null, $column = 'id'){
         $q .= " WHERE $column = $id";
     }
     foreach($bdd->query($q) as $row) {
+        if(function_exists($callback)){
+            $row = $callback($row);
+        }
         $results[] = $row;
     }
 
@@ -95,7 +98,7 @@ function db_delete($table, $id) {
     global $bdd;
     $response = ['sucess' => false];
     
-    if(count(db_get('membres', $id)) == 0){
+    if(count(db_get($table, $id)) == 0){
         $response['erreur'] = "Valeur introuvable";
         return $response;
     }
@@ -117,9 +120,12 @@ function db_delete($table, $id) {
 function parse($template_name, $data) {
     $template = file_get_contents(ROOT . '/vues/' . $template_name);
     $template = preg_replace_callback(
-        '/(\{\{([a-z_]+)\}\})/',
+        '/(\{\{([$a-zA-Z_]+)\}\})/',
         function ($matches) use ($data) {
-            //var_dump($matches);
+
+            if(preg_match('/^\$([a-zA-Z_]+)/', $matches[2], $matches2)){
+                return constant($matches2[1]);
+            }
             return $data[$matches[2]];
         },
         $template

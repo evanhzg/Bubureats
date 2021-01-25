@@ -1,11 +1,13 @@
 <?php
 session_start();
+define('WEBSITE_URL', 'http://localhost/bubureats');
 define('ADMIN_URL', 'http://localhost/bubureats/admin/');
 define('ROOT', realpath(dirname(dirname(__DIR__))));
 define('ADMIN_ROOT', ROOT . '/admin');
 
 include ROOT . '/includes/connexion.db.php';
 include ROOT . '/includes/functions.php';
+include ADMIN_ROOT . '/includes/callbacks.php';
 include ADMIN_ROOT . '/includes/controller.auth.php';
 include ADMIN_ROOT . '/includes/crud.php';
 
