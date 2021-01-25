@@ -17,6 +17,8 @@ if (isset($update)) {
     </div>
 
     <div class="col-md-8">
-
+    <?php
+        include 'vues/membre-dashboard-' . $membre['role'] . '.php';
+    ?>
     </div>
 </div>

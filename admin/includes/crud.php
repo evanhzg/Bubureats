@@ -4,6 +4,9 @@ if(isset($_POST['_form'])){
         case 'formAjoutMembre':
             $insert = db_insert('membres', $_POST);
             break;
+        case 'formAjoutPlat':
+            $insert = db_insert('plats', $_POST);
+            break;
         case 'formEditMembre':
             $update = db_update('membres', $_POST['_id'], $_POST);
             break;
@@ -14,5 +17,5 @@ if(isset($_POST['_form'])){
 }
 
 if(isset($_GET['delete'])){
-    $response = db_delete('membres', $_GET['delete']);
+    $response = db_delete($_GET['delete'], $_GET['delete_id']);
 }
