@@ -140,3 +140,13 @@ function parse_alert($message, $type = 'danger') {
     ];
     return parse('alert.html', $data);
 }
+
+function get_commissions($table){
+    $commissions = 0;
+    $commandes = db_get($table);
+    foreach($commandes as $commande){
+        $commissions += $commande['montant_commission'];
+    }
+
+    return $commissions;
+}
