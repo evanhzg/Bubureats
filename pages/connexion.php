@@ -1,41 +1,29 @@
+<?php
+if(isset($login) && $login['success'] == false)
+{
+    echo parse_alert("Les informations de connexion sont erronées. Veuillez réessayer.", 'danger');
+}
+?>
+
 <div class="container">
     <div>
-        <h2>Connexion</h2>
+    <h1 class="text-uppercase my-4 text-center">Connexion</h1>
     </div>
-    <section>
-        <div class=row>
-
-            <div class="col-md-6">
-
-                <form method="POST" action="" class="contact-form">
-                    <div>
-                        <label class="label">MAIL</label>
-                        <input type="email" placeholder="Votre mail" name="mailconnect">
-                    </div>
-                    <div>
-                        <label class="label">MOT DE PASSE</label>
-                        <input type="password" placeholder="Votre mot de passe"name="mdpconnect">
-                    </div>
-                    <br>
-                    <div>
-                    <input type="submit" name="formconnect" value="Se connecter">
-                    </div>
-                </form>
-                <?php
-                if(isset($login) && $login['success'] == false)
-                {
-                    echo parse('alerte-erreur.html', $login);
-                }
-                ?>
-                <div class="in">
-                Vous n'avez pas de compte? Inscrivez vous ici
-                <a href="index.php?page=inscription">S'inscrire</a>
-                </div>
+    <section class="mb-4">
+        <form method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="mail" class="label">Mail</label>
+                <input class="form-control" type="email" placeholder="Votre mail" id="mailconnect" name="mailconnect">
             </div>
-
-            <div class="col-md-6">
+            <div class="form-group">
+                <label for="mail" class="label">Mot de passe</label>
+                <input class="form-control" type="password" placeholder="Votre mot de passe" id="mdpconnect" name="mdpconnect">
             </div>
-
-        </div>
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" name="formconnect" value="Se connecter">
+            </div>
+        </form>
     </section>
+    <p>Vous n'avez pas de compte? Rejoignez l'espace d'inscription ici: <a class="btn btn-secondary" href="index.php?page=choix-compte">Inscription</a></p>
+
 </div>

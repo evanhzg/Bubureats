@@ -32,9 +32,15 @@ switch($requested_page){
         $page = 'dashboard';
         $restaurants = db_get('restaurants');
         $membres = db_get('membres');
+        $commandes = db_get('commandes');
+        $columns = array_keys($commandes[0]);
+        $total_commissions = array_sum($columns);
         $stats = [
             'nb_restaurants' => count($restaurants),
-            'nb_membres' => count($membres)
+            'nb_membres' => count($membres),
+            'nb_commandes' => count($commandes),
+            'total_commissions' => $total_commissions
         ];
+        var_dump($columns);
         break;
 }

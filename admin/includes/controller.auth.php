@@ -11,7 +11,6 @@ if(!isset($_SESSION['admin']) && !isset($is_login_page)){
 }
 if(isset($_POST['loginform'])){
     $login = auth_login_admin($_POST);
-    var_dump($login);
 }
 
 if(isset($_GET['logout'])){

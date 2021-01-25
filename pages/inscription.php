@@ -1,13 +1,9 @@
 <div class="container">
     <div class = co>
-        <h1>Inscription Client</h1>
-        Vous n'êtes pas client? Revenez à l'espace identification ici
-        <br><br>
-        <a href="index.php?page=choix-compte">Identification</a>
+        <h1 class="text-uppercase my-4 text-center">Inscription <?php echo $_GET['role']?></h1>
     </div>
-    <br><br>
-    <section>
-        <form method="POST" action="" class="contact-form">
+    <section class="mb-4">
+        <form method="POST" class="contact-form">
             <div class="form-group">
                 <label for="nom" class="label">NOM</label>
                 <input class="form-control" type="text" placeholder="Votre nom" id="nom" name="nom">
@@ -39,17 +35,12 @@
             </div>
         </form>
     </section>
-    <br>
+    <p>Vous avez déjà un compte? Rejoignez l'espace d'identification ici: <a class="btn btn-secondary" href="index.php?page=connexion">Connexion</a></p>
     <?php
     if(isset($create_profile) && $create_profile['success'] == false)
     {
         echo parse('alerte-erreur.html', $create_profile);
     }
     ?>
-    <br><br>
-    <div class = co>
-        Vous avez déja un compte? Connectez vous ici
-        <br><br>
-        <a href="index.php?page=connexion">Se connecter</a>
-    </div>
+    
 </div>
