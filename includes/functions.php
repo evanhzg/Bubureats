@@ -4,7 +4,7 @@ function db_get($table, $id=null, $column = 'id', $callback=null){
     $results = [];
     $q = "SELECT * FROM $table";
     if (!is_null($id)){
-        $q .= " WHERE $column = $id";
+        $q .= " WHERE $column = '$id'";
     }
     foreach($bdd->query($q) as $row) {
         if(function_exists($callback)){
@@ -36,7 +36,7 @@ function db_insert($table, $data) {
     $placeholder = [];
 
     for ($i=0; $i < count($keys); $i++) { 
-        if(!preg_match('/^_/', $keys[$i])){
+        if(!preg_match('/^_/', $keys[$i]) && $keys[$i] != 'MAX_FILE_SIZE'){
             $colonnes[] = $keys[$i];
             $placeholder[] = "?";
         }
@@ -55,7 +55,10 @@ function db_insert($table, $data) {
         $response['erreur'] = $erreur[2];
     }
     else{
-    $response = ['sucess' => true];
+        $response = [
+            'success' => true,
+            'insertId' => $bdd->lastInsertId()
+        ];
         
     }
     return $response;
@@ -71,7 +74,7 @@ function db_update($table, $id, $data) {
     $placeholder = [];
 
     for ($i=0; $i < count($keys); $i++) { 
-        if(!preg_match('/^_/', $keys[$i])){
+        if(!preg_match('/^_/', $keys[$i]) && $keys[$i] != 'MAX_FILE_SIZE'){
             $colonnes_valeurs[] = $keys[$i]. "= ?";
         }
         else{
@@ -149,4 +152,47 @@ function get_commissions($table){
     }
 
     return $commissions;
+}
+
+function upload() {
+    $uploaddir = ROOT . '/uploads/';
+    $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
+    echo $uploadfile;
+
+    echo '<pre>';
+    if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
+        echo "Le fichier est valide, et a été téléchargé
+            avec succès. Voici plus d'informations :\n";
+    } else {
+        echo "Attaque potentielle par téléchargement de fichiers.
+            Voici plus d'informations :\n";
+    }
+
+    echo 'Voici quelques informations de débogage :';
+    print_r($_FILES);
+
+    echo '</pre>';
+}
+
+function envoiEmail ($destinataire, $expediteur, $sujet, $contenuHTML) {
+
+    // ça ne fonctionne pas encore mais je vais me coucher... A demain.
+    $response = ['success' => false];
+
+    $headers = 
+    'MIME-Version: 1.0' . "\r\n" .
+    'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
+    'From: ' . $expediteur . "\r\n" .
+    'Reply-To: ' . $expediteur . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+    $send = mail($destinataire, $sujet, $contenuHTML, $headers);
+    if (!$send) {
+        $response['erreur'] = error_get_last();
+    }
+    else {
+        $response['success'] = true;
+    }
+
+    return $response;
 }

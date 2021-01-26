@@ -23,13 +23,14 @@ class Panier {
     public function ajoutPlat($id_plat, $quantite = 1, $id_restaurant = null){
         $alert = null;
         $membres = db_get('membres', $_SESSION['id']);
-        $plat = $this->plats[$id_plat]['prix']; //erreur pour le moment
+        $plat = db_get('plats', $id_plat)[0];
+        $prix_plat = $plat['prix'];
         $totaux = $this->totaux['montant'];
 
         if(isset($_SESSION['panier']) && $_SESSION['panier']['id_restaurant'] != $id_restaurant){
             $this->erreur = "Veuillez terminer ou annuler votre commande en cours avant d'en recommencer une autre.";
         }
-        else if($membres[0]['solde'] < $totaux + $plat){
+        else if($membres[0]['solde'] < ($totaux + $prix_plat)){
             $this->erreur = "Solde insuffisant pour ajouter cet article.";
         }
         else{
@@ -49,7 +50,8 @@ class Panier {
     }
 
     public function retirerPlat($id_plat){
-        $this->plats[$id_plat]['quantite'] -= 1;
+        $this->plats[$id_plat]['quantite'] = 0;
+        unset($this->plats[$id_plat]);
         $this->enregistrerPanier();
     }
 
@@ -69,9 +71,11 @@ class Panier {
         $this->totaux = $total;
     }
 
-    public function viderPanier(){
+    public function viderPanier($redirect = true){
         unset($_SESSION['panier']);
-        header('Location: index.php?page=' . $_GET['page'] . '&restaurant_id=' . $_GET['restaurant_id']);
+        if($redirect == true){
+            header('Location: index.php?page=' . $_GET['page'] . '&restaurant_id=' . $_GET['restaurant_id']);
+        }
     }
 
     public function finaliserPanier(){
@@ -86,6 +90,10 @@ class Panier {
             'statut' => 'encours'
         ];
         $insert = db_insert('commandes', $commande);
+        if($insert['success'] == true){
+            $this->viderPanier(false);
+            header("Location: index.php?page=merci&commande=" . $insert['insertId']);
+        }
     }
 
     private function enregistrerPanier(){

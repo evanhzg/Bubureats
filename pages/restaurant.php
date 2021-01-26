@@ -40,10 +40,10 @@ else{
                     <div>
                         <?php
                         foreach($panier->plats as $plat) {
-                            echo parse('plat-panier.php', $plat);
+                            echo parse('plat-panier.html', $plat);
                         }
                         ?>
-                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary">Payer (<?php echo number_format($panier->totaux['montant'], 2);?>€)</a>
+                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary btn-block">Payer (<?php echo number_format($panier->totaux['montant'], 2);?>€)</a>
                         <div class="mt-4">
                         <a href="index.php?page=restaurant&restaurant_id=<?php echo $restaurant['id']; ?>&viderpanier">Vider le panier</a>
                         </div>

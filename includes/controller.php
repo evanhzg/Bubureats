@@ -5,6 +5,8 @@ define('MONTANT_COMMISSION', 2.5);
 include 'includes/controller.auth.php';
 include 'includes/controller.panier.php';
 
+$mail = envoiEmail('cedric.hoizey@gmail.com','cedric.hoizey@gmail.com', 'test 1', 'yeah');
+var_dump($mail);
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;
 switch($requested_page){
@@ -50,7 +52,13 @@ switch($requested_page){
     case 'finalisation-commande':
         $page = 'finalisation-commande';
         break;
+
+    case 'merci':
+        $page = 'merci';
+        $pagetitle = "Merci pour votre commande.";
+        break;
     default:
         $page = 'homepage';
+        $restaurants = db_get('restaurants');
         break;
 }

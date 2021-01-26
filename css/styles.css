@@ -38,3 +38,7 @@ body{
     flex: 2 1 auto;
     align-self: auto;
     }
+
+header.masthead{
+  padding-top: 2em;
+}

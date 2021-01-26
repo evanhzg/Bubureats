@@ -104,16 +104,7 @@
     <div id="collapseRestaurants" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Général</h6>
-            <a class="collapse-item" href="login.html">Table des membres</a>
-            <h6 class="collapse-header">Restaurateurs</h6>
-            <a class="collapse-item" href="login.html">Informations</a>
-            <a class="collapse-item" href="register.html">Modifier un compte</a>
-            <a class="collapse-item" href="forgot-password.html">Supprimer un compte</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Clients</h6>
-            <a class="collapse-item" href="404.html">Informations</a>
-            <a class="collapse-item" href="register.html">Modifier un compte</a>
-            <a class="collapse-item" href="forgot-password.html">Supprimer un compte</a>
+            <a class="collapse-item" href="index.php?page=restaurants">Table des restaurants</a>
         </div>
     </div>
 </li>

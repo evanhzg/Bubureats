@@ -1,4 +1,7 @@
 <?php
+if (isset($_FILES['photo'])) {
+    //upload();
+}
 if(isset($_POST['_form'])){
     switch($_POST['_form']){
         case 'formAjoutMembre':
@@ -7,9 +10,16 @@ if(isset($_POST['_form'])){
         case 'formAjoutPlat':
             $insert = db_insert('plats', $_POST);
             break;
+        case 'formAjoutRestaurant':
+            $insert = db_insert('restaurants', $_POST);
+            break;
         case 'formEditMembre':
             $update = db_update('membres', $_POST['_id'], $_POST);
             break;
+        case 'formEditRestaurant':
+            $update = db_update('restaurants', $_POST['_id'], $_POST);
+            break;
+        
         default:
             $response['erreur'] = 'formulaire non identifié.';
             break;
