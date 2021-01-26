@@ -1,3 +1,18 @@
+<?php
+if($restaurant['id'] != $panier->id_restaurant)
+{
+    if(!is_null($panier->erreur)) {
+        echo parse_alert("$panier->erreur", 'danger');
+    }
+    else if(!is_null($panier->id_restaurant)){
+        echo parse_alert("Vous avez déjà une commande en cours dans un autre restaurant.", 'warning');
+    }
+}
+else{
+    $nom_restaurant = $restaurant['nom'];
+}
+?>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -20,15 +35,18 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">
-                        Votre commande
+                        Votre commande (<?php echo $panier->nom_restaurant;?>)
                     </h3>
                     <div>
                         <?php
                         foreach($panier->plats as $plat) {
-                            echo parse('plat-panier.html', $plat);
+                            echo parse('plat-panier.php', $plat);
                         }
                         ?>
-                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary">Finaliser la commande</a>
+                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary">Payer (<?php echo number_format($panier->totaux['montant'], 2);?>€)</a>
+                        <div class="mt-4">
+                        <a href="index.php?page=restaurant&restaurant_id=<?php echo $restaurant['id']; ?>&viderpanier">Vider le panier</a>
+                        </div>
                     </div>
                 </div>
             </div>

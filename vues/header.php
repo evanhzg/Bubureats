@@ -46,7 +46,14 @@
           <ul class="navbar-nav ml-auto">
             <?php
             if(isset($_SESSION['id'])){
-              echo parse('menu-connected.html', $userinfo);
+                $membres = db_get('membres', $_SESSION['id']);
+                $role = $membres[0]['role'];
+                if($role != 'restaurateur'){
+                  echo parse('menu-connected.html', $userinfo);
+                }
+                else{
+                  echo parse('menu-connected-restaurateur.html', $userinfo);
+                }
             }
             else{
               echo parse('menu-connexion.html', []);

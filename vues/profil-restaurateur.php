@@ -1,37 +1,37 @@
 RESTAURANT
         <div>
-            <h1>Profil de <?php echo $userinfo['prenom'];?> </h1>
+            <h1 class="text-center">Profil de <?php echo $userinfo['prenom'];?> </h1>
         </div>
-        <section>
+        <section class="mb-4 mx-4 text-uppercase">
             <form class="contact-form">
-                <div>
+                <div class="form-group">
                 <label class="label">Nom</label>
-                <input type="text" placeholder="<?php echo $userinfo['nom']?>" disabled>
+                <input class="form-control" type="text" placeholder="<?php echo $userinfo['nom']?>" disabled>
                 </div>
-                <div>
+                <div class="form-group">
                 <label class="label">Prenom</label>
-                <input type="text" placeholder="<?php echo $userinfo['prenom']?>" disabled>
+                <input class="form-control" type="text" placeholder="<?php echo $userinfo['prenom']?>" disabled>
                 </div>
-                <div>
+                <div class="form-group">
                 <label class="label">Mail</label>
-                <input type="text" placeholder="<?php echo $userinfo['mail']?>" disabled>
+                <input class="form-control" type="text" placeholder="<?php echo $userinfo['mail']?>" disabled>
                 </div>
-                <div>
+                <div class="form-group">
                 <label class="label">Adresse</label>
-                <input type="text" placeholder="<?php echo $userinfo['adresse']?>" disabled>
+                <input class="form-control" type="text" placeholder="<?php echo $userinfo['adresse']?>" disabled>
+                </div>
+                <div class="form-group">
+                <label class="label">Revenus</label>
+                <input class="form-control" type="text" placeholder="<?php echo $userinfo['solde']?>" disabled>
                 </div>
                 <div>
-                <label class="label">Solde</label>
-                <input type="text" placeholder="<?php echo $userinfo['solde']?>" disabled>
+                    <a class="btn btn-primary edit" href="index.php?page=profil-edit">Editer mon profil</a>
                 </div>
         </section>
     <?php
     if (isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id'])
     {
     ?>
-    <div>
-        <a class="edit" href="index.php?page=profil-edit">Editer mon profil</a>
-    </div>
     <?php
     }
     ?>

@@ -131,9 +131,9 @@ function auth_update_profile(){
             $response['erreur'] = "Vos mots de passe ne correspondent pas!";
         }
     }
-    if(isset($_POST['new_adresse']) AND !empty($_POST['new_adresse']) AND $_POST['new_adresse'] != $user['adresse'])
+    if(isset($_POST['ville']) AND isset($_POST['codepostal']) AND isset($_POST['adresse']) AND !empty($_POST['adresse']))
     {
-        $new_adresse = htmlspecialchars($_POST['new_adresse']);
+        $new_adresse = htmlspecialchars($_POST['adresse']) . ", " . htmlspecialchars($_POST['codepostal']) . " " . htmlspecialchars($_POST['ville']);
         $insertadresse = $bdd->prepare("UPDATE membres SET adresse = ? WHERE id = ?");
         $insertadresse->execute(array($new_adresse, $_SESSION['id']));
         header("location: index.php?page=profil");

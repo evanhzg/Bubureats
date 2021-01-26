@@ -5,6 +5,8 @@ class Panier {
     public $totaux = [];
     public $status = null;
     public $id_restaurant = null;
+    public $nom_restaurant = null;
+    public $erreur = null;
 
     function __construct()
     {
@@ -13,49 +15,87 @@ class Panier {
             $this->totaux = $_SESSION['panier']['totaux'];
             $this->status = $_SESSION['panier']['status'];
             $this->id_restaurant = $_SESSION['panier']['id_restaurant'];
+            $this->nom_restaurant = $_SESSION['panier']['nom_restaurant'];
         }
+        $this->totalCommande();
     }
 
     public function ajoutPlat($id_plat, $quantite = 1, $id_restaurant = null){
-        if  (isset($this->plats[$id_plat])) {
-            $this->plats[$id_plat]['quantite'] += $quantite;
+        $alert = null;
+        $membres = db_get('membres', $_SESSION['id']);
+        $plat = $this->plats[$id_plat]['prix']; //erreur pour le moment
+        $totaux = $this->totaux['montant'];
+
+        if(isset($_SESSION['panier']) && $_SESSION['panier']['id_restaurant'] != $id_restaurant){
+            $this->erreur = "Veuillez terminer ou annuler votre commande en cours avant d'en recommencer une autre.";
         }
-        else {
-            $this->plats[$id_plat] = db_get('plats', $id_plat)[0];
-            $this->plats[$id_plat]['quantite'] =  $quantite;
+        else if($membres[0]['solde'] < $totaux + $plat){
+            $this->erreur = "Solde insuffisant pour ajouter cet article.";
         }
-        $this->id_restaurant = $id_restaurant;
+        else{
+            if (isset($this->plats[$id_plat])) {
+                $this->plats[$id_plat]['quantite'] += $quantite;
+            }
+            else {
+                $this->plats[$id_plat] = db_get('plats', $id_plat)[0];
+                $this->plats[$id_plat]['quantite'] =  $quantite;
+            }
+            $this->id_restaurant = $id_restaurant;
+            $this->nom_restaurant = db_get('restaurants', $id_restaurant)[0]['nom']; 
+            $this->enregistrerPanier();
+        }
+        $this->totalCommande();
+        return $this->erreur;
+    }
+
+    public function retirerPlat($id_plat){
+        $this->plats[$id_plat]['quantite'] -= 1;
         $this->enregistrerPanier();
     }
 
     public function totalCommande(){
-        return 10;
+        $total = [
+            'horscommission' => 0,
+            'commission' => 0,
+            'montant' => 0,
+            'nombredeplats' => 0
+        ];
+        foreach($this->plats as $plat){
+            $total['horscommission'] += $plat['prix'] * $plat['quantite'];
+            $total['nombredeplats'] += $plat['quantite'];
+        }
+        $total['commission'] = count($this->plats) > 0 ? MONTANT_COMMISSION : 0;
+        $total['montant'] =  $total['horscommission'] + $total['commission'];
+        $this->totaux = $total;
     }
 
     public function viderPanier(){
-        
+        unset($_SESSION['panier']);
+        header('Location: index.php?page=' . $_GET['page'] . '&restaurant_id=' . $_GET['restaurant_id']);
     }
 
     public function finaliserPanier(){
-        $commande  = [
+        $this->totalCommande();
+        $commande = [
             'plats' => json_encode($this->plats),
-            'nombre_plats' => count($this->plats),
-            'total_ht' => $this->totalCommande(),
-            'montant_commission' => MONTANT_COMMISSION,
+            'nombre_plats' => $this->totaux['nombredeplats'],
+            'total_ht' => $this->totaux['horscommission'],
+            'montant_commission' => $this->totaux['commission'],
             'id_client' => $_SESSION['id'],
-            'id_restaurant' => $this->id_restaurant
+            'id_restaurant' => $this->id_restaurant,
+            'statut' => 'encours'
         ];
         $insert = db_insert('commandes', $commande);
-        var_dump($insert);
-        var_dump($this->en);
     }
 
     private function enregistrerPanier(){
+        $this->totalCommande();        
         $_SESSION['panier'] = [
             'plats' => $this->plats,
             'totaux' => $this->totaux,
             'status' => $this->status,
             'id_restaurant' => $this->id_restaurant,
+            'nom_restaurant' => $this->nom_restaurant
         ];
     }
 }
