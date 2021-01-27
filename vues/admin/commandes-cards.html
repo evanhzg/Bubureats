@@ -12,7 +12,7 @@
         <div class="mx-3">
             Mail de contact: {{mail}}
         </div>
-        <div class="mx-3">
+        <div class="mx-3 mt-2">
             Total de la commande: <a class="text-warning">{{prix}}€</a> 
         </div>
         <div class="mx-3">
@@ -20,12 +20,11 @@
         </div>
 
         <div class="mx-3 mt-2">
-            Plats:
-
+            <strong>Plats:</strong>
             {{liste_plats}}
         </div>
     
-        <form class="row card-body mb-2 mx-4" method="post">
+        <form class="row card-body mb-2" method="post">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline1-{{id}}" name="statut" value="atraiter" class="custom-control-input"{{is_atraiter}}>
                 <label class="custom-control-label" for="customRadioInline1-{{id}}">À traiter</label>
@@ -44,7 +43,7 @@
             </div>
             <input type="hidden" name="_form" value="formEditStatut">
             <input type="hidden" name="_id" value="{{id}}">
-            <button class="btn btn-primary btn-block" type="submit">Enregistrer le statut</button>
+            <button class="btn btn-primary btn-block mt-4" type="submit">Enregistrer le statut</button>
         </form>
     </div>
 </div>
