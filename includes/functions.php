@@ -204,7 +204,9 @@ function get_commandes($statut){
 
 function get_commande_details($commande){
     $commande['client'] = db_get('membres', $commande['id_client'])[0];
+    $commande['nom_client'] = $commande['client']['nom'] . " " . $commande['client']['prenom'];
     $commande['restaurant'] = db_get('restaurants', $commande['id_restaurant'])[0];
+    $commande['nom_restaurant'] = $commande['restaurant']['nom'];
     $commande['mail'] = $commande['restaurant']['email'];
    //debug($commande);
     $commande['prix'] = ($commande['total_ht'] + $commande['montant_commission']);
@@ -233,7 +235,7 @@ function heure_livraison($datetime){
     $d = new DateTime($datetime);
     $heure_commande = $d->format('H:i:s');
     $date_commande = $d->format('d/m/Y');
-    $d->add(new DateInterval('PT' . TEMPS_LIVRAISON . 'H'));
+    $d->add(new DateInterval('PT' . TEMPS_LIVRAISON . 'M'));
     $date_livraison = $d->format('d/m/Y');
     $heure_livraison = $d->format('H:i:s');
     $livraison = [
@@ -243,4 +245,19 @@ function heure_livraison($datetime){
         'date_livraison' => $date_livraison,
     ];
     return $livraison;
+}
+
+function calcul_moyenne($row) {
+
+    $row['moyenne'] = floor($row['cumul_notes']/$row['nb_votes']);
+    for ($i=0; $i < 5; $i++) {
+        $row['note'] = [];
+        if ($row['moyenne'] >= $i){
+        $row['note'] .= '<i class="fas fa-star text-success"></i>';
+        }
+        else{
+        $row['note'] .= '<i class="fas fa-star"></i>';
+        }
+    }
+    return $row;
 }

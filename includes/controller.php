@@ -37,7 +37,8 @@ switch($requested_page){
     case 'restaurant':
         $page = 'restaurant';
         $restaurant = db_get('restaurants', $_GET['restaurant_id'])[0];
-        $plats = db_get('plats', $_GET['restaurant_id'], 'id_restaurant');
+        $plats = db_get('plats', $_GET['restaurant_id'], 'id_restaurant', 'calcul_moyenne');
+        $note = $plats['note'];
         $pagetitle = "" . $restaurant['nom'] . " commande";
         break;
     case 'plats':

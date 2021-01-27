@@ -1,4 +1,4 @@
-Délai de livraison: <?php echo TEMPS_LIVRAISON, "h"; ?>
+Délai de livraison: <?php echo TEMPS_LIVRAISON, "mn"; ?>
 
-Frais: <?php echo TEMPS_LIVRAISON, "€"; ?>
+Frais: <?php echo MONTANT_COMMISSION, "€"; ?>
 ?> 

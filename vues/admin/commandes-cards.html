@@ -1,13 +1,13 @@
 <div class="row card my-4">
-    <div class="text-center card-header">
+    <div class="text-center card-header collapsed" data-toggle="collapse" data-target="#commande-collapse-{{id}}" aria-expanded="false" aria-controls="commande-collapse-{{id}}">
         Commande nº {{id}} <a class="text-success">({{heure_livraison}})</a>
     </div>
-    <div class="card-body mt-2 mx-4">
+    <div class="card-body collapse mt-2 mx-4" id="commande-collapse-{{id}}" aria-labelledby="headingOne">
         <div class="mx-3">
-            ID du restaurant: <a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{id_restaurant}}</a>
+            Restaurant: <a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{nom_restaurant}}</a>
         </div>
         <div class="mx-3">
-            ID du client: <a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{id_client}}</a>
+            Client: <a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{nom_client}}</a>
         </div>
         <div class="mx-3">
             Mail de contact: {{mail}}
@@ -24,27 +24,27 @@
 
             {{liste_plats}}
         </div>
-    </div>
     
-    <form class="row card-body mb-2 mx-4" method="post">
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline1" name="statut" value="atraiter" class="custom-control-input"{{is_atraiter}}>
-            <label class="custom-control-label" for="customRadioInline1">À traiter</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline2" name="statut" value="enpreparation" class="custom-control-input"{{is_enpreparation}}>
-            <label class="custom-control-label" for="customRadioInline2" >En préparation</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline3" name="statut" value="enlivraison" class="custom-control-input"{{is_enlivraison}}>
-            <label class="custom-control-label" for="customRadioInline3" >En livraison</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadioInline4" name="statut" value="terminee" class="custom-control-input"{{is_terminee}}>
-            <label class="custom-control-label" for="customRadioInline4">Terminée</label>
-        </div>
-        <input type="hidden" name="_form" value="formEditStatut">
-        <input type="hidden" name="_id" value="{{id}}">
-    </form>
-    <button class="btn btn-primary" type="submit">Enregistrer le statut</button>
+        <form class="row card-body mb-2 mx-4" method="post">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1-{{id}}" name="statut" value="atraiter" class="custom-control-input"{{is_atraiter}}>
+                <label class="custom-control-label" for="customRadioInline1-{{id}}">À traiter</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2-{{id}}" name="statut" value="enpreparation" class="custom-control-input"{{is_enpreparation}}>
+                <label class="custom-control-label" for="customRadioInline2-{{id}}" >En préparation</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline3-{{id}}" name="statut" value="enlivraison" class="custom-control-input"{{is_enlivraison}}>
+                <label class="custom-control-label" for="customRadioInline3-{{id}}" >En livraison</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline4-{{id}}" name="statut" value="terminee" class="custom-control-input"{{is_terminee}}>
+                <label class="custom-control-label" for="customRadioInline4-{{id}}">Terminée</label>
+            </div>
+            <input type="hidden" name="_form" value="formEditStatut">
+            <input type="hidden" name="_id" value="{{id}}">
+            <button class="btn btn-primary btn-block" type="submit">Enregistrer le statut</button>
+        </form>
+    </div>
 </div>
