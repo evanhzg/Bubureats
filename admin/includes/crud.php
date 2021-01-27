@@ -1,5 +1,4 @@
 <?php
-debug($_POST);
 if (isset($_FILES['photo'])) {
     //upload();
 }

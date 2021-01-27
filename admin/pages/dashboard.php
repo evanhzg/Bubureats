@@ -49,7 +49,7 @@
         </li>
         <li class="nav-item">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#avis" aria-expanded="false" aria-controls="avis">
-                Avis des clients
+                Avis des clients (<? echo $stats['nb_avis'];?>)
             </button>
         </li>
         </ul>
@@ -93,7 +93,26 @@
                 ?>
         </div>
         <div id="avis" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-            Avis
+            <h2 class="text-center">Avis des clients</h2>
+                <?php
+                foreach ($restaurants as $restaurant){
+                    ?>
+                    <div id="avis" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="text-center card-header collapsed" data-toggle="collapse" data-target="#commande-collapse-{{id}}" aria-expanded="false" aria-controls="commande-collapse-{{id}}">
+                            <?php echo $restaurant['nom']; ?>
+                        </div>
+                    <?php
+                        foreach ($avis as $avi) {
+                            if ($avi['id_restaurant'] == $restaurant['id']){ //A TERMINER ( COLLAPSE RESTAURANT AVEC AVIS DEDANS + CREER AVIS ET NOTER)
+                                $avi['nom_client'] = $membres['nom'];
+                                echo parse('admin/avis-cards.html', $avi);
+                            }
+                        }
+                    ?>
+                    </div>
+                <?php
+                }
+                ?>
         </div>
     </div>
 </div>

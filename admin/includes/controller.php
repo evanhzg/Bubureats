@@ -45,17 +45,18 @@ switch($requested_page){
         $restaurants = db_get('restaurants');
         $membres = db_get('membres');
         $commandes = db_get('commandes');
+        $avis = db_get('avis');
         $total_commissions = get_commissions('commandes');
         $stats = [
             'nb_restaurants' => count($restaurants),
             'nb_membres' => count($membres),
             'nb_commandes' => count($commandes),
+            'nb_avis' => count($avis),
             'total_commissions' => $total_commissions . "€",
             'commandes_atraiter' => get_commandes('atraiter'),
             'commandes_enpreparation' => get_commandes('enpreparation'),
             'commandes_enlivraison' => get_commandes('enlivraison'),
             'commandes_terminees' => get_commandes('terminee'),
-
         ];
         break;
 }

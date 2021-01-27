@@ -1,0 +1,17 @@
+<div class="row card my-4">
+    <div class="text-center card-header collapsed" data-toggle="collapse" data-target="#commande-collapse-{{id}}" aria-expanded="false" aria-controls="commande-collapse-{{id}}">
+        Avis nº {{id}}
+    </div>
+    <div class="card-body collapse mt-2 mx-4" id="commande-collapse-{{id}}" aria-labelledby="headingOne">
+        <div class="mx-3">
+            Restaurant: <a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{id_restaurant}}</a>
+        </div>
+        <div class="mx-3">
+            Client: <a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{id_client}}</a>
+        </div>
+
+        <div class="mx-3 mt-2">
+            Message: {{message}}
+        </div>
+    </div>
+</div>
