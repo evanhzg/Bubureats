@@ -1,0 +1,710 @@
+
+<!-- saved from url=(0043)http://localhost/bubureats/admin/index.php# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body id="page-top">array(11) {
+  ["id"]=&gt;
+  string(1) "7"
+  ["plats"]=&gt;
+  string(136) "{"4":{"id":"4","nom":"Tapas","photo":"img\/pates.jpg","prix":"11","tags":"tex-mex,fast-food,mexicain","id_restaurant":"3","quantite":3}}"
+  ["nombre_plats"]=&gt;
+  string(1) "1"
+  ["total_ht"]=&gt;
+  string(2) "10"
+  ["montant_commission"]=&gt;
+  string(3) "2.5"
+  ["id_client"]=&gt;
+  string(2) "19"
+  ["id_restaurant"]=&gt;
+  string(1) "3"
+  ["date_commande"]=&gt;
+  string(19) "2021-01-26 13:06:08"
+  ["statut"]=&gt;
+  string(7) "encours"
+  ["client"]=&gt;
+  array(8) {
+    ["id"]=&gt;
+    string(2) "19"
+    ["nom"]=&gt;
+    string(12) "Restaurateur"
+    ["prenom"]=&gt;
+    string(12) "Restaurateur"
+    ["mail"]=&gt;
+    string(25) "restaurateur@bubureats.fr"
+    ["motdepasse"]=&gt;
+    string(40) "53895e49bfaadb9e6648eaf7da328ad6863a77b7"
+    ["adresse"]=&gt;
+    string(32) "1 rue du restaurant, 76000 Rouen"
+    ["solde"]=&gt;
+    string(4) "37.5"
+    ["role"]=&gt;
+    string(12) "restaurateur"
+  }
+  ["restaurants"]=&gt;
+  array(8) {
+    ["id"]=&gt;
+    string(1) "3"
+    ["nom"]=&gt;
+    string(10) "La taverne"
+    ["photo"]=&gt;
+    string(12) "img/re03.jpg"
+    ["email"]=&gt;
+    string(20) "contact@lataverne.fr"
+    ["tags"]=&gt;
+    string(12) "traditionnel"
+    ["description"]=&gt;
+    NULL
+    ["ville"]=&gt;
+    string(5) "Rouen"
+    ["id_restaurateur"]=&gt;
+    NULL
+  }
+}
+
+
+
+
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>BUBUR Eats - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="./BUBUR Eats - Dashboard_files/all.min.css" rel="stylesheet" type="text/css">
+    <link href="./BUBUR Eats - Dashboard_files/css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="./BUBUR Eats - Dashboard_files/sb-admin-2.min.css" rel="stylesheet">
+    <link href="./BUBUR Eats - Dashboard_files/jquery.dataTables.min.css" rel="stylesheet">
+
+
+
+
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper"><!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+<!-- Sidebar - Brand -->
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="http://localhost/bubureats/admin/index.php">
+    <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-laugh-wink"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">BUBUREats<sup>admin</sup></div>
+</a>
+
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
+
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+    <a class="nav-link" href="http://localhost/bubureats/admin/index.php">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span></a>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Configuration
+</div>
+
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="http://localhost/bubureats/admin/index.php#" data-toggle="collapse" data-target="#collapseBoutique" aria-expanded="true" aria-controls="collapseBoutique">
+        <i class="fas fa-fw fa-cog"></i>
+        <span>Boutique</span>
+    </a>
+    <div id="collapseBoutique" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Quoi configurer?</h6>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/buttons.html">Délais de livraison</a>
+        </div>
+    </div>
+</li>
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="http://localhost/bubureats/admin/index.php#" data-toggle="collapse" data-target="#collapseAdmin" aria-expanded="true" aria-controls="collapseAdmin">
+        <i class="fas fa-fw fa-wrench"></i>
+        <span>Administration</span>
+    </a>
+    <div id="collapseAdmin" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Utilities:</h6>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/utilities-color.html">Colors</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/utilities-border.html">Borders</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/utilities-animation.html">Animations</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/utilities-other.html">Other</a>
+        </div>
+    </div>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Gestion
+</div>
+
+<!-- Nav Item - Pages Collapse Menu -->
+<li class="nav-item">
+    <a class="nav-link collapsed" href="http://localhost/bubureats/admin/index.php#" data-toggle="collapse" data-target="#collapseMembres" aria-expanded="true" aria-controls="collapseMembres">
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Membres</span>
+    </a>
+    <div id="collapseMembres" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Général</h6>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/index.php?page=membres">Table des membres</a>
+            <h6 class="collapse-header">Restaurateurs</h6>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/login.html">Informations</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/register.html">Modifier un compte</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/forgot-password.html">Supprimer un compte</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Clients</h6>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/404.html">Informations</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/register.html">Gérer les commandes</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/register.html">Modifier un compte</a>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/forgot-password.html">Supprimer un compte</a>
+        </div>
+    </div>
+</li>
+
+<!-- Nav Item - Charts -->
+<li class="nav-item">
+    <a class="nav-link" href="http://localhost/bubureats/admin/index.php#" data-toggle="collapse" data-target="#collapseRestaurants" aria-expanded="true" aria-controls="collapseRestaurants">
+        <i class="fas fa-fw fa-chart-area"></i>
+        <span>Restaurants</span>
+    </a>
+    <div id="collapseRestaurants" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Général</h6>
+            <a class="collapse-item" href="http://localhost/bubureats/admin/index.php?page=restaurants">Table des restaurants</a>
+        </div>
+    </div>
+</li>
+
+<!-- Nav Item - Tables -->
+<li class="nav-item">
+    <a class="nav-link" href="http://localhost/bubureats/admin/tables.html">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Avis Clients</span></a>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider d-none d-md-block">
+
+<!-- Sidebar Toggler (Sidebar) -->
+<div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+</div>
+
+</ul>
+<!-- End of Sidebar -->
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column">
+
+<!-- Main Content -->
+<div id="content">
+
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Search -->
+    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Topbar Navbar -->
+    <ul class="navbar-nav ml-auto">
+
+        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+        <li class="nav-item dropdown no-arrow d-sm-none">
+            <a class="nav-link dropdown-toggle" href="http://localhost/bubureats/admin/index.php#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </li>
+
+        <!-- Nav Item - Alerts -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="http://localhost/bubureats/admin/index.php#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <!-- Counter - Alerts -->
+                <span class="badge badge-danger badge-counter">3+</span>
+            </a>
+            <!-- Dropdown - Alerts -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                    Alerts Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-primary">
+                            <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 12, 2019</div>
+                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-success">
+                            <i class="fas fa-donate text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 7, 2019</div>
+                        $290.29 has been deposited into your account!
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="mr-3">
+                        <div class="icon-circle bg-warning">
+                            <i class="fas fa-exclamation-triangle text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">December 2, 2019</div>
+                        Spending Alert: We've noticed unusually high spending for your account.
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="http://localhost/bubureats/admin/index.php#">Show All Alerts</a>
+            </div>
+        </li>
+
+        <!-- Nav Item - Messages -->
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="http://localhost/bubureats/admin/index.php#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter">7</span>
+            </a>
+            <!-- Dropdown - Messages -->
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                    Message Center
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="./BUBUR Eats - Dashboard_files/undraw_profile_1.svg" alt="">
+                        <div class="status-indicator bg-success"></div>
+                    </div>
+                    <div class="font-weight-bold">
+                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                            problem I've been having.</div>
+                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="./BUBUR Eats - Dashboard_files/undraw_profile_2.svg" alt="">
+                        <div class="status-indicator"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">I have the photos that you ordered last month, how
+                            would you like them sent to you?</div>
+                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="./BUBUR Eats - Dashboard_files/undraw_profile_3.svg" alt="">
+                        <div class="status-indicator bg-warning"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                            the progress so far, keep up the good work!</div>
+                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                    </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="http://localhost/bubureats/admin/index.php#">
+                    <div class="dropdown-list-image mr-3">
+                        <img class="rounded-circle" src="./BUBUR Eats - Dashboard_files/60x60" alt="">
+                        <div class="status-indicator bg-success"></div>
+                    </div>
+                    <div>
+                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                            told me that people say this to all dogs, even if they aren't good...</div>
+                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                    </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="http://localhost/bubureats/admin/index.php#">Read More Messages</a>
+            </div>
+        </li>
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="http://localhost/bubureats/admin/index.php#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    Evan Hoizey                </span>
+                <img class="img-profile rounded-circle" src="./BUBUR Eats - Dashboard_files/undraw_profile.svg">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="http://localhost/bubureats/admin/index.php#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                </a>
+                <a class="dropdown-item" href="http://localhost/bubureats/admin/index.php#">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Settings
+                </a>
+                <a class="dropdown-item" href="http://localhost/bubureats/admin/index.php#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost/bubureats/admin/pages/login.php">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+
+    </ul>
+
+</nav>
+<!-- End of Topbar -->
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-default border-left-success shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Nombre de restaurants</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-utensils fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-default border-left-info shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                        Nombre de membres</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">6</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-default border-left-danger shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                        Nombre de commandes passées</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">33</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- Earnings (Monthly) Card Example -->
+<div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-default border-left-danger shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                        Revenus totaux des commissions</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">82.5€</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-wallet fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="http://localhost/bubureats/admin/index.php#">Commandes en cours</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost/bubureats/admin/index.php#">Commandes terminées</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="http://localhost/bubureats/admin/index.php#">Avis des clients</a>
+        </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <br>
+<b>Notice</b>:  Undefined index: id_restaurant in <b>/Applications/XAMPP/xamppfiles/htdocs/bubureats/includes/functions.php</b> on line <b>132</b><br>
+<br>
+<b>Notice</b>:  Undefined index: id_client in <b>/Applications/XAMPP/xamppfiles/htdocs/bubureats/includes/functions.php</b> on line <b>132</b><br>
+<div class="row card-group">
+    <div class="card-body">
+         
+    </div>
+</div>    </div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content --><!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright © Your Website 2020</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+       
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="http://localhost/bubureats/admin/index.php#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Modal nouveau membre-->
+<div class="modal fade" id="nouveaumembre" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un membre</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form method="post">
+                <div class="form-group">
+                    <label for="mail">Email</label>
+                    <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" name="mail">
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" name="nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse">
+                </div>
+                <div class="form-group">
+                    <label for="motdepasse">Mot de passe</label>
+                    <input type="password" class="form-control" id="motdepasse" name="motdepasse">
+                </div>
+                <div class="form-group">
+                    <label for="solde">Solde</label>
+                    <input type="number" class="form-control" id="solde" name="solde">
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="role" value="client" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline1">Client</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="role" value="restaurateur" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2">Restaurateur</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline3" name="role" value="admin" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline3">Administrateur</label>
+                </div>
+                <input type="hidden" name="_form" value="formAjoutMembre">
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal nouveau plat-->
+<div class="modal fade" id="nouveauplat" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un plat</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form method="post">
+                <div class="form-group">
+                    <label for="nom">Nom du plat</label>
+                    <input type="text" class="form-control" id="nom" name="nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prix</label>
+                    <input type="number" class="form-control" id="prix" name="prix">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Tags</label>
+                    <input type="text" class="form-control" id="tags" name="tags">
+                </div>
+                <div class="form-group">
+                    <label for="customFile">Photo</label>
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="customFile"></label>
+                        <input type="file" class="custom-file-input" id="customFile">
+                    </div>
+                </div>
+                <input type="text" name="id_restaurant" value="&lt;br /&gt;
+&lt;b&gt;Notice&lt;/b&gt;:  Undefined variable: restaurant in &lt;b&gt;/Applications/XAMPP/xamppfiles/htdocs/bubureats/admin/vues/modals.php&lt;/b&gt; on line &lt;b&gt;91&lt;/b&gt;&lt;br /&gt;
+">
+                <input type="hidden" name="_form" value="formAjoutPlat">
+                <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal nouveau restaurant-->
+<div class="modal fade" id="nouveaurestaurant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ajouter un restaurant</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form method="post">
+                <div class="form-group">
+                    <label for="nom">Nom du restaurant</label>
+                    <input type="text" class="form-control" id="nom" name="nom">
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Nom du restaurateur</label>
+                    <select class="form-control" id="id_restaurateur" name="id_restaurateur">
+                        <option></option>
+                    
+Notice:  Undefined variable: restaurateurs in /Applications/XAMPP/xamppfiles/htdocs/bubureats/admin/vues/modals.php on line 124
+
+Warning:  Invalid argument supplied for foreach() in /Applications/XAMPP/xamppfiles/htdocs/bubureats/admin/vues/modals.php on line 124
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Tags</label>
+                    <input type="text" class="form-control" id="tags" name="tags">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Email de contact</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Ville</label>
+                    <input type="text" class="form-control" id="ville" name="ville">
+                </div>
+                <div class="form-group">
+                    <label for="customFile">Photo</label>
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="customFile"></label>
+                        <input type="file" class="custom-file-input" id="customFile">
+                    </div>
+                </div>
+                <input type="hidden" name="_form" value="formAjoutRestaurant">
+                <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div><!-- Bootstrap core JavaScript-->
+<script src="./BUBUR Eats - Dashboard_files/jquery.min.js"></script>
+<script src="./BUBUR Eats - Dashboard_files/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="./BUBUR Eats - Dashboard_files/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="./BUBUR Eats - Dashboard_files/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="./BUBUR Eats - Dashboard_files/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="./BUBUR Eats - Dashboard_files/chart-area-demo.js"></script>
+<script src="./BUBUR Eats - Dashboard_files/chart-pie-demo.js"></script>
+<script src="./BUBUR Eats - Dashboard_files/jquery.dataTables.min.js"></script>
+<script src="./BUBUR Eats - Dashboard_files/admin.js"></script>
+
+
+
+</body></html>

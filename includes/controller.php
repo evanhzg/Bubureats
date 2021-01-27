@@ -1,12 +1,7 @@
 <?php
-define('WEBSITE_URL', 'http://localhost/bubureats');
-define('ROOT', realpath(dirname(__DIR__)));
-define('MONTANT_COMMISSION', 2.5);
-include 'includes/controller.auth.php';
-include 'includes/controller.panier.php';
 
 $mail = envoiEmail('cedric.hoizey@gmail.com','cedric.hoizey@gmail.com', 'test 1', 'yeah');
-var_dump($mail);
+//var_dump($mail);
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;
 switch($requested_page){

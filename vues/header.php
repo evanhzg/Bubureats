@@ -33,14 +33,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="input-group d-flex justify-content-end align-items-end mr-4">
-          <div class="form-outline">
-            <input id="search-input" type="search" id="form1" class="form-control" placeholder="MIAM-MIAM" />
-          </div>
-          <button id="search-button" type="button" class="btn btn-primary">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <?php

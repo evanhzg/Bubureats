@@ -196,3 +196,51 @@ function envoiEmail ($destinataire, $expediteur, $sujet, $contenuHTML) {
 
     return $response;
 }
+
+function get_commandes($statut){
+    $commandes = db_get('commandes', $statut, 'statut', 'get_commande_details');
+    return $commandes;
+}
+
+function get_commande_details($commande){
+    $commande['client'] = db_get('membres', $commande['id_client'])[0];
+    $commande['restaurant'] = db_get('restaurants', $commande['id_restaurant'])[0];
+    $commande['mail'] = $commande['restaurant']['email'];
+   //debug($commande);
+    $commande['prix'] = ($commande['total_ht'] + $commande['montant_commission']);
+    $commande['is_atraiter'] =  $commande['statut'] == 'atraiter' ? ' checked' : null;
+    $commande['is_enpreparation'] =  $commande['statut'] == 'enpreparation' ? ' checked' : null;
+    $commande['is_enlivraison'] =  $commande['statut'] == 'enlivraison' ? ' checked' : null;
+    $commande['is_terminee'] =  $commande['statut'] == 'terminee' ? ' checked' : null;
+    $livraison = heure_livraison($commande['date_commande']);
+    $commande['heure_livraison'] = $livraison['heure_livraison'];
+
+    $commande['liste_plats'] = '';
+    foreach(json_decode($commande['plats'], true) as $plat) {
+        $commande['liste_plats'] .= parse('admin/plats-card-statut.html', $plat); // evan c'est a toi de jouer! change le template.
+    }
+
+    return $commande;
+}
+
+function debug($var) {
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+}
+
+function heure_livraison($datetime){
+    $d = new DateTime($datetime);
+    $heure_commande = $d->format('H:i:s');
+    $date_commande = $d->format('d/m/Y');
+    $d->add(new DateInterval('PT' . TEMPS_LIVRAISON . 'H'));
+    $date_livraison = $d->format('d/m/Y');
+    $heure_livraison = $d->format('H:i:s');
+    $livraison = [
+        'heure_commande' => $heure_commande,
+        'date_commande' => $date_commande,
+        'heure_livraison' => $heure_livraison,
+        'date_livraison' => $date_livraison,
+    ];
+    return $livraison;
+}

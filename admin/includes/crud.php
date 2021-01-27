@@ -19,7 +19,8 @@ if(isset($_POST['_form'])){
         case 'formEditRestaurant':
             $update = db_update('restaurants', $_POST['_id'], $_POST);
             break;
-        
+        case 'formEditStatut':
+            $update = db_update('commandes', $_POST['_id'], $_POST);
         default:
             $response['erreur'] = 'formulaire non identifié.';
             break;

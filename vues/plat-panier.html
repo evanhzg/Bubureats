@@ -1,14 +1,11 @@
-<div class="media">
-    <img src="{{photo}}" class="w-25 mb-1 mr-2" alt="{{nom}}">
+<div class="media mb-4">
+    <img src="{{photo}}" class="col-2 px-0 mb-1" alt="{{nom}}">
     <div class="media-body">
-        <div>
-            {{nom}} (x{{quantite}})
+        <div class="col-10 pl-1 pr-0">
+            {{nom}} (x{{quantite}}) <a href="index.php?page=restaurant&restaurant_id={{id_restaurant}}&retirerplat={{id}}" class="text-danger font-weight-bold">&times;</a>
         </div>
-        <div>
+        <div class="pl-1">
             {{prix}}€
-        </div>
-        <div>
-            <a href="index.php?page=restaurant&restaurant_id={{id_restaurant}}&retirerplat={{id}}" class="text-danger">&times;</a>
         </div>
     </div>
 </div>

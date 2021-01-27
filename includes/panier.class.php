@@ -87,11 +87,17 @@ class Panier {
             'montant_commission' => $this->totaux['commission'],
             'id_client' => $_SESSION['id'],
             'id_restaurant' => $this->id_restaurant,
-            'statut' => 'encours'
+            'statut' => 'atraiter'
         ];
+        $membre = db_get('membres', $_SESSION['id']);
+        $montant = $commande['montant_commission'] + $commande['total_ht'];
+
+        $solde = $membre[0]['solde'];
+        $reducsolde = ['solde' => $solde-$montant];
         $insert = db_insert('commandes', $commande);
         if($insert['success'] == true){
             $this->viderPanier(false);
+            db_update('membres', $_SESSION['id'], $reducsolde);
             header("Location: index.php?page=merci&commande=" . $insert['insertId']);
         }
     }

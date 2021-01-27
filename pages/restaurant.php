@@ -19,7 +19,7 @@ else{
             <?php
             echo parse('restaurant-header.html', $restaurant);
             ?>
-            <section class="white-bg">
+            <section class="container text-center border px-auto my-2">
                 <h2>Nos plats</h2>
                 <div class="row liste-plats">
                     <?php
@@ -31,9 +31,9 @@ else{
                 </div>
             </section>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
+        <div class="col-md-4 my-2" style="height: auto;">
+            <div class="card" style="height: 100%;">
+                <div class="card-body px-1">
                     <h3 class="card-title">
                         Votre commande (<?php echo $panier->nom_restaurant;?>)
                     </h3>
@@ -43,8 +43,8 @@ else{
                             echo parse('plat-panier.html', $plat);
                         }
                         ?>
-                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary btn-block">Payer (<?php echo number_format($panier->totaux['montant'], 2);?>€)</a>
-                        <div class="mt-4">
+                        <a href="index.php?page=finalisation-commande" class="btn btn-lg btn-primary btn-block fi">Payer (<?php echo number_format($panier->totaux['montant'], 2);?>€)</a>
+                        <div class="mt-4 text-center">
                         <a href="index.php?page=restaurant&restaurant_id=<?php echo $restaurant['id']; ?>&viderpanier">Vider le panier</a>
                         </div>
                     </div>

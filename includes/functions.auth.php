@@ -168,7 +168,6 @@ function auth_create_profile(){
         $mdp2 = sha1($_POST['mdp2']);
         $role = $_POST['role'];
         $adresse = htmlspecialchars($_POST['adresse']) . ", " . htmlspecialchars($_POST['codepostal']) . " " . htmlspecialchars($_POST['ville']);
-        var_dump($nom, $prenom, $mail, $mdp, $role, $adresse);
         if($mail == $mail2)
         {
             if(filter_var($mail, FILTER_VALIDATE_EMAIL))

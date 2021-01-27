@@ -11,11 +11,6 @@ body{
   color: rgb(94, 94, 94);
 }
 
-.white-bg{
-  width: 100%;
-  background-color: white;
-}
-
 #main {flex: 1;}
 
 .flex-container {

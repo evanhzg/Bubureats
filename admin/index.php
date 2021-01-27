@@ -1,15 +1,18 @@
 <?php
-include "includes/controller.php";
-include "vues/header.php";
-include "vues/sidebar.php";
+include '../includes/define_includes.php';
+include ADMIN_ROOT . '/includes/callbacks.php';
+include ADMIN_ROOT . '/includes/crud.php';
+include ADMIN_ROOT . "/includes/controller.php";
+include ADMIN_ROOT . "/vues/header.php";
+include ADMIN_ROOT . "/vues/sidebar.php";
 ?>
 
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 
 <?php
-include "vues/content.php";
-include "vues/footer.php";
+include ADMIN_ROOT . "/vues/content.php";
+include ADMIN_ROOT . "/vues/footer.php";
 ?>       
 
 </div>
@@ -24,8 +27,8 @@ include "vues/footer.php";
 </a>
 
 <?php
-include "vues/modals.php";
-include "vues/scripts.php";
+include ADMIN_ROOT . "/vues/modals.php";
+include ADMIN_ROOT . "/vues/scripts.php";
 ?>
 
 </body>

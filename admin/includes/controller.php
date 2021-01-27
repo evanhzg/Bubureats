@@ -1,15 +1,5 @@
 <?php
 session_start();
-define('WEBSITE_URL', 'http://localhost/bubureats');
-define('ADMIN_URL', 'http://localhost/bubureats/admin/');
-define('ROOT', realpath(dirname(dirname(__DIR__))));
-define('ADMIN_ROOT', ROOT . '/admin');
-
-include ROOT . '/includes/connexion.db.php';
-include ROOT . '/includes/functions.php';
-include ADMIN_ROOT . '/includes/callbacks.php';
-include ADMIN_ROOT . '/includes/controller.auth.php';
-include ADMIN_ROOT . '/includes/crud.php';
 
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;
@@ -27,6 +17,11 @@ switch($requested_page){
         $restaurants = db_get('restaurants');
         $restaurateurs = db_get('membres', 'restaurateur', 'role');
         $columns = array_keys($restaurants[0]);
+        break;
+
+    case 'configuration':
+        $page = 'configuration';
+        $pagetitle = "Configuration";
         break;
 
     case 'membre-edit':
@@ -55,7 +50,12 @@ switch($requested_page){
             'nb_restaurants' => count($restaurants),
             'nb_membres' => count($membres),
             'nb_commandes' => count($commandes),
-            'total_commissions' => $total_commissions . "€"
+            'total_commissions' => $total_commissions . "€",
+            'commandes_atraiter' => get_commandes('atraiter'),
+            'commandes_enpreparation' => get_commandes('enpreparation'),
+            'commandes_enlivraison' => get_commandes('enlivraison'),
+            'commandes_terminees' => get_commandes('terminee'),
+
         ];
         break;
 }

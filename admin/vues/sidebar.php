@@ -32,12 +32,12 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBoutique"
         aria-expanded="true" aria-controls="collapseBoutique">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Boutique</span>
+        <span>Configuration</span>
     </a>
     <div id="collapseBoutique" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Quoi configurer?</h6>
-            <a class="collapse-item" href="buttons.html">Délais de livraison</a>
+            <h6 class="collapse-header">Configuration</h6>
+            <a class="collapse-item" href="index.php?page=configuration">Livraison et frais</a>
         </div>
     </div>
 </li>
@@ -80,16 +80,6 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Général</h6>
             <a class="collapse-item" href="index.php?page=membres">Table des membres</a>
-            <h6 class="collapse-header">Restaurateurs</h6>
-            <a class="collapse-item" href="login.html">Informations</a>
-            <a class="collapse-item" href="register.html">Modifier un compte</a>
-            <a class="collapse-item" href="forgot-password.html">Supprimer un compte</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Clients</h6>
-            <a class="collapse-item" href="404.html">Informations</a>
-            <a class="collapse-item" href="register.html">Gérer les commandes</a>
-            <a class="collapse-item" href="register.html">Modifier un compte</a>
-            <a class="collapse-item" href="forgot-password.html">Supprimer un compte</a>
         </div>
     </div>
 </li>
