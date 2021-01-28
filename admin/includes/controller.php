@@ -12,7 +12,7 @@ switch($requested_page){
 
     case 'restaurants':
         $page = 'restaurants';
-        $pagetitle = "restaurants";
+        $pagetitle = "Liste des restaurants";
         $restaurants = db_get('restaurants');
         $restaurateurs = db_get('membres', 'restaurateur', 'role');
         $columns = array_keys($restaurants[0]);
@@ -25,21 +25,22 @@ switch($requested_page){
 
     case 'membre-edit':
         $page = 'membre-edit';
-        $pagetitle = "membres";
         $membre = db_get('membres', $_GET['id'])[0];
         $membre['is_client'] = $membre['role'] == 'client' ? ' checked' : null;
         $membre['is_restaurateur'] = $membre['role'] == 'restaurateur' ? ' checked' : null;
         $membre['is_admin'] = $membre['role'] == 'admin' ? ' checked' : null;
+        $pagetitle = "Modifier le profil de " . $membre['nom'];
         break;
 
     case 'restaurant-edit':
         $page = 'restaurant-edit';
-        $pagetitle = "restaurants";
         $restaurant = db_get('restaurants', $_GET['id'])[0];
+        $pagetitle = "Modifier le restaurant - " . $restaurant['nom'];
         break;
 
     default:
         $page = 'dashboard';
+        $pagetitle = 'Dashboard';
         $restaurants = db_get('restaurants');
         $membres = db_get('membres');
         $commandes = db_get('commandes');

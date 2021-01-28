@@ -22,7 +22,7 @@
 
     echo parse('admin/stats-total.html', [
         'total' => $stats['nb_commandes'],
-        'titre' => 'Nombre de commandes passées',
+        'titre' => 'Nombre de commandes',
         'icon_class' => 'fas fa-shopping-cart',
         'color' => 'danger'
     ]);

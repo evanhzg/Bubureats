@@ -60,10 +60,12 @@ switch($requested_page){
         $page = 'inscription';
         $pagetitle = "Inscription";
         break;
+        
     case 'choix-compte':
         $page = 'choix-compte';
-        $pagetitle = "Qui êtes-vous ?";
+        $pagetitle = "Qui êtes-vous?";
         break;
+
     case 'profil':
         $page = 'profil';
         $pagetitle = "Votre compte";
@@ -80,37 +82,44 @@ switch($requested_page){
             $commandes = db_get('commandes', $_SESSION['id'], 'id_client', 'get_commande_details');
         }
         break;
+
     case 'profil-edit':
         $page = 'profil-edit';
         $pagetitle = 'Edition du Profil';
         break;
+
     case 'profil-restaurant':
         $page = 'profil-restaurant';
         $restaurant = db_get('restaurants', $_SESSION['id'], 'id_restaurateur')[0];
         $plats = db_get('plats', $restaurant['id'], 'id_restaurant', 'calcul_moyenne');
 
         $commandes = db_query("SELECT * FROM commandes WHERE id_restaurant = " . $restaurant['id'], 'get_commande_details');
-        $pagetitle = "Votre compte";
+        $pagetitle = "Votre restaurant";
         break;
+
     case 'connexion':
         $page = 'connexion';
         $pagetitle = "Connexion";
         break;
+
     case 'restaurants':
         $page = 'restaurants';
         $restaurants = db_get('restaurants');
         $pagetitle = "Liste des restaurants";
         break;
+
     case 'restaurant':
         $page = 'restaurant';
         $restaurant = db_get('restaurants', $_GET['restaurant_id'])[0];
         $plats = db_get('plats', $_GET['restaurant_id'], 'id_restaurant', 'calcul_moyenne');
         $pagetitle = "" . $restaurant['nom'] . " commande";
         break;
+
     case 'plats':
         $page = 'plats';
         $plats = db_get('plats');
         break;
+
     case 'finalisation-commande':
         $page = 'finalisation-commande';
         break;
@@ -121,9 +130,10 @@ switch($requested_page){
         $commande = db_get('commandes', $_GET['commande'])[0];
         $plats = json_decode($commande['plats']);
         break;
+
     default:
         $page = 'homepage';
+        $pagetitle = 'Miam';
         $restaurants = db_get('restaurants');
         break;
 }
-//A FINIR (pb d'index toujours)
