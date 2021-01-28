@@ -190,15 +190,15 @@ function upload() {
 
 function envoiEmail ($destinataire, $expediteur, $sujet, $contenuHTML) {
 
-    // ça ne fonctionne pas encore mais je vais me coucher... A demain.
     $response = ['success' => false];
+
+    ini_set("SMTP", "aspmx.l.google.com");
+    ini_set("sendmail_from", "pro.evanhz@gmail.com");
 
     $headers = 
     'MIME-Version: 1.0' . "\r\n" .
     'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
-    'From: ' . $expediteur . "\r\n" .
-    'Reply-To: ' . $expediteur . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+    'From: ' . $expediteur;
 
     $send = mail($destinataire, $sujet, $contenuHTML, $headers);
     if (!$send) {

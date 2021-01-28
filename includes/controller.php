@@ -52,8 +52,6 @@ if(isset($_POST['_form'])){
             break;
     }
 }
-
-$mail = envoiEmail('cedric.hoizey@gmail.com','cedric.hoizey@gmail.com', 'test 1', 'yeah');
 //var_dump($mail);
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;

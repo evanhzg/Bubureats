@@ -95,10 +95,17 @@ class Panier {
         $solde = $membre[0]['solde'];
         $reducsolde = ['solde' => $solde-$montant];
         $insert = db_insert('commandes', $commande);
+
         if($insert['success'] == true){
+
             $this->viderPanier(false);
             db_update('membres', $_SESSION['id'], $reducsolde);
+
+            $restaurant = db_get('restaurant', $this->id_restaurant)[0];
+            //$mail = envoiEmail($restaurant['email'],ADMIN_EMAIL, 'Nouvelle commande', 'Vous avez une nouvelle commande. Veuillez vous connecter à votre espace restaurateur.');
+            
             header("Location: index.php?page=merci&commande=" . $insert['insertId']);
+
         }
     }
 

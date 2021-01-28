@@ -6,5 +6,5 @@
         }
     ?>
 
-    <a href="index.php?page=finalisation-commande&payer" class="btn btn-lg btn-primary confirm">Payer</a>
+    <a href="index.php?page=merci&payer" class="btn btn-lg btn-primary">Payer</a>
 </div>
