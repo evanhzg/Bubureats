@@ -4,14 +4,14 @@
     </div>
     <div class="card-body collapse mt-2 mx-4" id="commande-collapse-{{id}}" aria-labelledby="headingOne">
         <div class="mx-3">
-            Restaurant: <a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{id_restaurant}}</a>
+            <strong>Restaurant: </strong><a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{nom_restaurant}}</a>
         </div>
         <div class="mx-3">
-            Client: <a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{id_client}}</a>
+            <strong>Client: </strong><a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{nom_client}}</a>
         </div>
 
         <div class="mx-3 mt-2">
-            Message: {{message}}
+            <strong>Message: </strong>"{{message}}"
         </div>
     </div>
 </div>

@@ -61,6 +61,7 @@
                     <h2 class="text-center">À traiter</h2>
                 <?php
                 foreach ($stats['commandes_atraiter'] as $commande) {
+                    $commande['color'] = 'info';
                     echo parse('admin/commandes-cards.html', $commande);
                 }
                 ?>
@@ -69,6 +70,7 @@
                     <h2 class="text-center">En préparation</h2>
                 <?php
                 foreach ($stats['commandes_enpreparation'] as $commande) {
+                    $commande['color'] = 'danger';
                     echo parse('admin/commandes-cards.html', $commande);
                 }
                 ?>
@@ -77,6 +79,7 @@
                     <h2 class="text-center">En livraison</h2>
                 <?php
                 foreach ($stats['commandes_enlivraison'] as $commande) {
+                    $commande['color'] = 'warning';
                     echo parse('admin/commandes-cards.html', $commande);
                 }
                 ?>
@@ -88,6 +91,7 @@
             <h2 class="text-center">Terminées</h2>
                 <?php
                 foreach ($stats['commandes_terminees'] as $commande) {
+                    $commande['color'] = 'success';
                     echo parse('admin/commandes-cards.html', $commande);
                 }
                 ?>
@@ -96,21 +100,13 @@
             <h2 class="text-center">Avis des clients</h2>
                 <?php
                 foreach ($restaurants as $restaurant){
-                    ?>
-                    <div id="avis" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="text-center card-header collapsed" data-toggle="collapse" data-target="#commande-collapse-{{id}}" aria-expanded="false" aria-controls="commande-collapse-{{id}}">
-                            <?php echo $restaurant['nom']; ?>
-                        </div>
-                    <?php
-                        foreach ($avis as $avi) {
-                            if ($avi['id_restaurant'] == $restaurant['id']){ //A TERMINER ( COLLAPSE RESTAURANT AVEC AVIS DEDANS + CREER AVIS ET NOTER)
-                                $avi['nom_client'] = $membres['nom'];
-                                echo parse('admin/avis-cards.html', $avi);
-                            }
+                    foreach ($avis as $avi) {
+                        if ($avi['id_restaurant'] == $restaurant['id']){ 
+                            $avi['nom_client'] = $membres[0]['nom'] . " " . $membres[0]['prenom'];
+                            $avi['nom_restaurant'] = $restaurant['nom'];
+                            echo parse('admin/avis-cards.html', $avi);
                         }
-                    ?>
-                    </div>
-                <?php
+                    }
                 }
                 ?>
         </div>

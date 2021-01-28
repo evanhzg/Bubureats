@@ -1,45 +1,45 @@
 <div class="row card my-4">
-    <div class="text-center card-header collapsed" data-toggle="collapse" data-target="#commande-collapse-{{id}}" aria-expanded="false" aria-controls="commande-collapse-{{id}}">
-        Commande nº {{id}} <a class="text-success">({{heure_livraison}})</a>
+    <div class="text-center card-header collapsedcard border-left-default border-left-{{color}} shadow h-100" data-toggle="collapse" data-target="#commande-collapse-{{id}}" aria-expanded="false" aria-controls="commande-collapse-{{id}}">
+        Commande nº {{id}} <a class="text-{{color}}">({{heure_livraison}})</a>
     </div>
-    <div class="card-body collapse mt-2 mx-4" id="commande-collapse-{{id}}" aria-labelledby="headingOne">
+    <div class="card-body collapse mx-4 border-bottom-default border-bottom-{{color}} shadow h-100" id="commande-collapse-{{id}}" aria-labelledby="headingOne">
         <div class="mx-3">
-            Restaurant: <a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{nom_restaurant}}</a>
+            <strong class="text-{{color}}">Restaurant: </strong><a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{nom_restaurant}}</a>
         </div>
         <div class="mx-3">
-            Client: <a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{nom_client}}</a>
+            <strong class="text-{{color}}">Client: </strong><a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{nom_client}}</a>
         </div>
         <div class="mx-3">
-            Mail de contact: {{mail}}
+            <strong class="text-{{color}}">Mail de contact: </strong>{{mail}}
         </div>
         <div class="mx-3 mt-2">
-            Total de la commande: <a class="text-warning">{{prix}}€</a> 
+            <strong class="text-{{color}}">Total de la commande: </strong><a class="text-warning">{{prix}}€</a> 
         </div>
         <div class="mx-3">
             (Frais de commande de <a class="text-gray-800">{{montant_commission}}€</a>) 
         </div>
 
         <div class="mx-3 mt-2">
-            <strong>Plats:</strong>
+            <strong class="text-{{color}}">Plats:</strong>
             {{liste_plats}}
         </div>
     
         <form class="row card-body mb-2" method="post">
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline1-{{id}}" name="statut" value="atraiter" class="custom-control-input"{{is_atraiter}}>
-                <label class="custom-control-label" for="customRadioInline1-{{id}}">À traiter</label>
+                <label class="custom-control-label text-gray-800" for="customRadioInline1-{{id}}">À traiter</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline2-{{id}}" name="statut" value="enpreparation" class="custom-control-input"{{is_enpreparation}}>
-                <label class="custom-control-label" for="customRadioInline2-{{id}}" >En préparation</label>
+                <label class="custom-control-label text-gray-800" for="customRadioInline2-{{id}}" >En préparation</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline3-{{id}}" name="statut" value="enlivraison" class="custom-control-input"{{is_enlivraison}}>
-                <label class="custom-control-label" for="customRadioInline3-{{id}}" >En livraison</label>
+                <label class="custom-control-label text-gray-800" for="customRadioInline3-{{id}}" >En livraison</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
                 <input type="radio" id="customRadioInline4-{{id}}" name="statut" value="terminee" class="custom-control-input"{{is_terminee}}>
-                <label class="custom-control-label" for="customRadioInline4-{{id}}">Terminée</label>
+                <label class="custom-control-label text-gray-800" for="customRadioInline4-{{id}}">Terminée</label>
             </div>
             <input type="hidden" name="_form" value="formEditStatut">
             <input type="hidden" name="_id" value="{{id}}">
