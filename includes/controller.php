@@ -44,6 +44,9 @@ if(isset($_POST['_form'])){
         case 'formAjoutPlat':
             $insert = db_insert('plats', $_POST);
             break;
+        case 'formEditPlat':
+            $update = db_update('plats', $_POST['_id'], $_POST);
+            break;
         default:
             $response['erreur'] = 'formulaire non identifié.';
             break;

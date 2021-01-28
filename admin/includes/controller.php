@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Routage
 $requested_page = isset($_GET['page']) ? $_GET['page'] : null;

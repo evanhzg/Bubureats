@@ -10,6 +10,9 @@ if(isset($_POST['_form'])){
         case 'formAjoutPlat':
             $insert = db_insert('plats', $_POST);
             break;
+        case 'formEditPlat':
+            $update = db_update('plats', $_POST['_id'], $_POST);
+            break;
         case 'formAjoutRestaurant':
             $insert = db_insert('restaurants', $_POST);
             break;
