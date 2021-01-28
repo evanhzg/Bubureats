@@ -1,4 +1,11 @@
 <?php
+
+if(isset($_GET['delete'])){
+    if (isset($_SESSION['id']) && $_SESSION['role'] == 'restaurateur') {
+        $response = db_delete($_GET['delete'], $_GET['delete_id']);
+    }
+}
+
 if(isset($_GET['id_plat'])){
     $plat = db_get('plats', $_GET['id_plat'])[0];
 
@@ -33,6 +40,9 @@ if(isset($_POST['_form'])){
     switch($_POST['_form']){
         case 'formEditRestaurant':
             $update = db_update('restaurants', $_POST['_id'], $_POST);
+            break;
+        case 'formAjoutPlat':
+            $insert = db_insert('plats', $_POST);
             break;
         default:
             $response['erreur'] = 'formulaire non identifié.';
@@ -76,6 +86,8 @@ switch($requested_page){
     case 'profil-restaurant':
         $page = 'profil-restaurant';
         $restaurant = db_get('restaurants', $_SESSION['id'], 'id_restaurateur')[0];
+        $plats = db_get('plats', $restaurant['id'], 'id_restaurant', 'calcul_moyenne');
+
         $commandes = db_query("SELECT * FROM commandes WHERE id_restaurant = " . $restaurant['id'], 'get_commande_details');
         $pagetitle = "Votre compte";
         break;
@@ -107,7 +119,6 @@ switch($requested_page){
         $pagetitle = "Merci pour votre commande.";
         $commande = db_get('commandes', $_GET['commande'])[0];
         $plats = json_decode($commande['plats']);
-        debug($plats);
         break;
     default:
         $page = 'homepage';

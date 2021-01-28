@@ -88,7 +88,7 @@
                         <input type="file" class="custom-file-input" id="customFile">
                     </div>
                 </div>
-                <input type="text" name="id_restaurant" value="<?php echo $restaurant['id']; ?>">
+                <input type="hidden" name="id_restaurant" value="<?php echo $restaurant['id']; ?>">
                 <input type="hidden" name="_form" value="formAjoutPlat">
                 <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
             </form>

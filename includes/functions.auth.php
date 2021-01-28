@@ -15,6 +15,7 @@ function auth_login($data){
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['prenom'] = $userinfo['prenom'];
             $_SESSION['mail'] = $userinfo['mail'];
+            $_SESSION['role'] = $userinfo['role'];
             $response['success'] = true;
             if($_SESSION['role'] != 'admin'){
                 header("Location: index.php?page=profil");

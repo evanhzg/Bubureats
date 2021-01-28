@@ -1,5 +1,4 @@
 $(document).ready( function () {
-    
     // fonctions des tableaux
     $('.dataTable').DataTable();
 

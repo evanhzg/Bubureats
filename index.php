@@ -8,3 +8,4 @@ include 'includes/controller.php';
 include 'vues/header.php'; 
 include 'pages/' . $page . '.php';
 include 'vues/footer.php';
+include 'vues/modals.php';

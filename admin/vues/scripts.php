@@ -15,4 +15,4 @@
 <script src="js/demo/chart-area-demo.js"></script>
 <script src="js/demo/chart-pie-demo.js"></script>
 <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<script src="js/admin.js"></script>
+<script src="../js/scripts.js"></script>
