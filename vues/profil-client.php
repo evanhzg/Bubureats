@@ -1,8 +1,11 @@
-CLIENT
-        <div>
-            <h1>Profil de <?php echo $userinfo['prenom'];?> </h1>
-        </div>
-        <section>
+<div class="container mt-4">
+    <div>
+        <h1 class="text-center">Profil de <?php echo $userinfo['prenom'];?> </h1>
+    </div>
+    <section class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">Votre profil</h2>
+
             <form class="contact-form">
                 <div class="form-group">
                 <label class="label">Nom</label>
@@ -27,11 +30,23 @@ CLIENT
                 <div>
                     <a class="btn btn-primary edit" href="index.php?page=profil-edit">Editer mon profil</a>
                 </div>
-        </section>
-    <?php
-    if (isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id'])
-    {
-    ?>
-    <?php
-    }
-    ?>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="text-center">Vos commandes</h2>
+            <?php
+                foreach($commandes as $commande){
+                    echo parse('commandes-cards.html', $commande);
+                }
+            ?>
+        </div>
+    </section>
+        <?php
+        if (isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id'])
+        {
+        ?>
+        <?php
+        }
+        ?>
+</div>

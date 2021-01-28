@@ -1,8 +1,8 @@
 <?php
-include ROOT . "/includes/functions.auth.php";
+//include ROOT . "/includes/functions.auth.php";
 $login = null;
 
-if (isset($is_login_page)) {
+if (isset($is_login_page) && !isset($_POST['loginform'])) {
     unset($_SESSION['admin']);
 }
 //redirection si non-connecté

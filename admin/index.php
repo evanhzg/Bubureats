@@ -1,5 +1,6 @@
 <?php
 include '../includes/define_includes.php';
+include ADMIN_ROOT . '/includes/controller.auth.php';
 include ADMIN_ROOT . '/includes/callbacks.php';
 include ADMIN_ROOT . '/includes/crud.php';
 include ADMIN_ROOT . "/includes/controller.php";

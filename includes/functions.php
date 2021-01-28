@@ -1,4 +1,18 @@
 <?php
+function db_query($query, $callback=null){
+    global $bdd;
+    $results = [];
+    foreach($bdd->query($query) as $row) {
+        if(function_exists($callback)){
+            $row = $callback($row);
+        }
+        $results[] = $row;
+    }
+
+    return $results;
+}
+
+
 function db_get($table, $id=null, $column = 'id', $callback=null){
     global $bdd;
     $results = [];
@@ -123,7 +137,7 @@ function db_delete($table, $id) {
 function parse($template_name, $data) {
     $template = file_get_contents(ROOT . '/vues/' . $template_name);
     $template = preg_replace_callback(
-        '/(\{\{([$a-zA-Z_]+)\}\})/',
+        '/(\{\{([$a-zA-Z0-9_]+)\}\})/',
         function ($matches) use ($data) {
 
             if(preg_match('/^\$([a-zA-Z_]+)/', $matches[2], $matches2)){
@@ -208,7 +222,6 @@ function get_commande_details($commande){
     $commande['restaurant'] = db_get('restaurants', $commande['id_restaurant'])[0];
     $commande['nom_restaurant'] = $commande['restaurant']['nom'];
     $commande['mail'] = $commande['restaurant']['email'];
-   //debug($commande);
     $commande['prix'] = ($commande['total_ht'] + $commande['montant_commission']);
     $commande['is_atraiter'] =  $commande['statut'] == 'atraiter' ? ' checked' : null;
     $commande['is_enpreparation'] =  $commande['statut'] == 'enpreparation' ? ' checked' : null;
@@ -219,7 +232,23 @@ function get_commande_details($commande){
 
     $commande['liste_plats'] = '';
     foreach(json_decode($commande['plats'], true) as $plat) {
-        $commande['liste_plats'] .= parse('admin/plats-card-statut.html', $plat); // evan c'est a toi de jouer! change le template.
+        $commande['liste_plats'] .= parse('admin/plats-card-statut.html', $plat);
+    }
+    $commande['liste_plats_client'] = '';
+    foreach(json_decode($commande['plats'], true) as $plat) {
+        $plat['id_client'] = $commande['id_client'];
+
+        $note = db_query("SELECT * FROM notes WHERE id_client = " . $commande['id_client'] . " AND id_plat = " . $plat['id']);
+        if(count($note) > 0){
+            $n = (int)$note[0]['note'];
+            for ($i=1; $i < 6; $i++) { 
+                $plat['is_on_' . $i] = $i <= $n ? ' text-success' : null;
+            }
+            $commande['liste_plats_client'] .= parse('plats_liste_note.html', $plat);
+        }
+        else{
+            $commande['liste_plats_client'] .= parse('plats_liste.html', $plat);
+        }
     }
 
     return $commande;
@@ -249,14 +278,14 @@ function heure_livraison($datetime){
 
 function calcul_moyenne($row) {
 
-    $row['moyenne'] = floor($row['cumul_notes']/$row['nb_votes']);
+    $row['moyenne'] = $row['nb_votes'] > 0 ? floor($row['cumul_notes']/$row['nb_votes']) : 0;
+    $row['note'] = '';
     for ($i=0; $i < 5; $i++) {
-        $row['note'] = [];
-        if ($row['moyenne'] >= $i){
-        $row['note'] .= '<i class="fas fa-star text-success"></i>';
+        if ($row['moyenne'] > 0 && $row['moyenne'] >= $i){
+            $row['note'] .= '<i class="fas fa-star text-success"></i>';
         }
         else{
-        $row['note'] .= '<i class="fas fa-star"></i>';
+            $row['note'] .= '<i class="fas fa-star"></i>';
         }
     }
     return $row;

@@ -1,0 +1,28 @@
+<div class="row card my-4">
+    <div class="text-center card-header border-left-default border-left shadow h-100">
+        Commande nº {{id}} <a class="text">({{heure_livraison}})</a>
+    </div>
+    <div class="card-body mx-4 border-bottom-default border-bottom shadow h-100">
+        <div class="mx-3">
+            <strong class="text">Restaurant : </strong><a href="http://localhost/bubureats/admin/index.php?page=restaurant-edit&id={{id_restaurant}}">{{nom_restaurant}}</a>
+        </div>
+        <div class="mx-3">
+            <strong class="text">Client : </strong><a href="http://localhost/bubureats/admin/index.php?page=membre-edit&id={{id_client}}">{{nom_client}}</a>
+        </div>
+        <div class="mx-3">
+            <strong class="text">Mail de contact : </strong>{{mail}}
+        </div>
+        <div class="mx-3 mt-2">
+            <strong class="text">Total de la commande : </strong><a class="text-warning">{{prix}}€</a> 
+        </div>
+        <div class="mx-3">
+            (Frais de commande de <a class="text-gray-800">{{montant_commission}}€</a>) 
+        </div>
+
+        <div class="mx-3 mt-2">
+            <strong class="text">Plats :</strong>
+            {{liste_plats_client}}
+        </div>
+
+    </div>
+</div>

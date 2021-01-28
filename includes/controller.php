@@ -1,4 +1,24 @@
 <?php
+if(isset($_GET['id_plat'])){
+    $plat = db_get('plats', $_GET['id_plat'])[0];
+
+    $note = db_query("SELECT * FROM notes WHERE id_client = " . $_GET['id_client'] . " AND id_plat = " . $_GET['id_plat']);
+    if(count($note) > 0){
+        // déjà noté
+    }
+    else{
+        $note = [
+            'id_plat' => $_GET['id_plat'],
+            'id_client' => $_GET['id_client'],
+            'note' => $_GET['note']
+        ];
+        db_insert('notes', $note);
+
+        $plat['nb_votes'] += 1;
+        $plat['cumul_notes'] += $_GET['note'];
+        db_update('plats', $_GET['id_plat'], $plat);
+    }
+}
 
 $mail = envoiEmail('cedric.hoizey@gmail.com','cedric.hoizey@gmail.com', 'test 1', 'yeah');
 //var_dump($mail);
@@ -16,6 +36,7 @@ switch($requested_page){
     case 'profil':
         $page = 'profil';
         $pagetitle = "Votre compte";
+        $commandes = db_get('commandes', $_SESSION['id'], 'id_client', 'get_commande_details');
         break;
     case 'profil-edit':
         $page = 'profil-edit';
@@ -38,7 +59,6 @@ switch($requested_page){
         $page = 'restaurant';
         $restaurant = db_get('restaurants', $_GET['restaurant_id'])[0];
         $plats = db_get('plats', $_GET['restaurant_id'], 'id_restaurant', 'calcul_moyenne');
-        $note = $plats['note'];
         $pagetitle = "" . $restaurant['nom'] . " commande";
         break;
     case 'plats':
@@ -58,3 +78,4 @@ switch($requested_page){
         $restaurants = db_get('restaurants');
         break;
 }
+//A FINIR (pb d'index toujours)
