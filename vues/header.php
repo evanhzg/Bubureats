@@ -43,6 +43,10 @@
                   echo parse('menu-connected.html', $userinfo);
                 }
                 else{
+                  $userinfo['lien_resto'] = '';
+                  if(!is_null($restaurant)){
+                    $userinfo['lien_resto'] = '<li class="nav-item"><a class="nav-link" href="index.php?page=profil-restaurant">Mon&nbsp;restaurant</a> </li>';
+                  }
                   echo parse('menu-connected-restaurateur.html', $userinfo);
                 }
             }

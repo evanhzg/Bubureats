@@ -1,9 +1,8 @@
 <?php
-if(!is_null($restaurant['id_restaurant'])){
+if(!is_null($restaurant['id'])){
     include "vues/edition-restaurant.php";
 }
 else{
 
 }
-
-//
+?>

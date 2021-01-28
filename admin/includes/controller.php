@@ -33,7 +33,6 @@ switch($requested_page){
         $membre['is_admin'] = $membre['role'] == 'admin' ? ' checked' : null;
         break;
 
-
     case 'restaurant-edit':
         $page = 'restaurant-edit';
         $pagetitle = "restaurants";

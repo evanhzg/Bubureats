@@ -1,0 +1,30 @@
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="mail">Email</label>
+        <input type="email" class="form-control" id="mail" aria-describedby="emailHelp" name="email" value="{{email}}">
+    </div>
+    <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" value="{{nom}}">
+    </div>
+    <div class="form-group">
+        <label for="photo">Photo</label>
+        <input type="file" class="form-control" id="photo" name="photo" value="{{photo}}">
+    </div>
+    <div class="form-group">
+        <label for="adresse">Ville</label>
+        <input type="text" class="form-control" id="ville" name="ville" value="{{ville}}">
+    </div>
+    <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="tags" name="tags" value="{{tags}}">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description">{{description}}</textarea>
+    </div>
+    <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+    <input type="hidden" name="_form" value="formEditRestaurant">
+    <input type="hidden" name="_id" value="{{id}}">
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
